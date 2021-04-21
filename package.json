@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "JavaScript development environment",
   "scripts": {
-    "start": "node buildScripts/srcServer.js"
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "babel-node buildScripts/srcServer.js"
   },
   "dependencies": {
     "whatwg-fetch": "3.6.2"
@@ -39,7 +40,7 @@
     "rimraf": "3.0.2",
     "style-loader": "2.0.0",
     "surge": "0.21.7",
-    "webpack": "5.24.2",
-    "webpack-dev-middleware": "4.1.0"
+    "webpack": "1.13.2",
+    "webpack-dev-middleware": "1.8.4"
   }
 }
