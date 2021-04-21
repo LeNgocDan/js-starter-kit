@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "JavaScript development environment",
   "scripts": {
-    "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "babel-node buildScripts/srcServer.js",
-    "localtunnel": "lt --port 3000",
-    "share": "npm-run-all --parallel start localtunnel"
+    "start": "node buildScripts/srcServer.js"
   },
   "dependencies": {
     "whatwg-fetch": "3.6.2"
