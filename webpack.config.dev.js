@@ -1,7 +1,6 @@
 import path from 'path';
 
 export default {
-  debug: true,
   mode: "development",
   devtool: "eval-source-map",
   entry: "./src/index.js",
