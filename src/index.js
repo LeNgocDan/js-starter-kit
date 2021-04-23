@@ -1,7 +1,19 @@
 import './index.css'
+import { getUsers } from './api/userApi';
 
-const value = 1000;
+getUsers().then(result => {
+  let usersBody = "";
 
-console.log(value); //eslint-disable-line no-console
+  result.forEach(user => {
+    usersBody += `<tr>
+      <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
+      <td>${user.id}</td>
+      <td>${user.firstName}</td>
+      <td>${user.lastName}</td>
+      <td>${user.email}</td>
+      </tr>`
+  });
 
-console.log('testing bundling with webpack'); //eslint-disable-line no-console
+  global.document.getElementById('users').innerHTML = usersBody;
+
+});

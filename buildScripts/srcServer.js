@@ -14,6 +14,13 @@ app.use(
   })
 );
 
+app.get("/users", (_req, res) => {
+  res.json([
+    { "id": 1, "firstName": "Le Ngoc", "lastName": "Dan", "email": "dan@gmail.com" },
+    { "id": 2, "firstName": "Le Quang", "lastName": "Nhat", "email": "nhat@gmail.com" }
+  ]);
+})
+
 app.get('/', function (_req, res) {
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
