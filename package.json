@@ -4,15 +4,22 @@
   "description": "JavaScript development environment",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel open:src lint:watch test:watch start-mockapi",
     "open:src": "babel-node buildScripts/srcServer.js",
-    "start": "npm-run-all --parallel open:src lint:watch start-mockapi",
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all --parallel open:src localtunnel",
     "lint": "esw webpack.config.* src buildScripts --color",
     "lint:watch": "npm run lint -- --watch",
-    "generate-mock-data": "babel-node buildScripts/generateMockData.js",
+    "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch",
+    "generate-mock-data": "babel-node buildScripts/generateMockData",
     "prestart-mockapi": "npm run generate-mock-data",
-    "start-mockapi": "json-server --watch src/api/db.json --port 3001"
+    "start-mockapi": "json-server --watch src/api/db.json --port 3001",
+    "clean-dist": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm-run-all clean-dist test lint",
+    "build": "babel-node buildScripts/build.js",
+    "postbuild": "babel-node buildScripts/distServer.js",
+    "deploy": "surge ./dist"
   },
   "dependencies": {
     "whatwg-fetch": "3.6.2"

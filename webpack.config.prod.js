@@ -2,8 +2,8 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
-  mode: "development",
-  devtool: "eval-source-map",
+  mode: "production",
+  devtool: "source-map",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -11,10 +11,10 @@ export default {
     filename: "bundle.js",
   },
   plugins: [
-    // Create HTML file that includes reference to bundled JS.
+    // create html file that includes reference to bundled js
     new HtmlWebpackPlugin({
       template: "src/index.html"
-    }),
+    })
   ],
   module: {
     rules: [
