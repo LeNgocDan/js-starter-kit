@@ -8,6 +8,7 @@
     "open:src": "babel-node buildScripts/srcServer.js",
     "localtunnel": "lt --port 3002 --subdomain jesse",
     "share": "npm-run-all --parallel open:src localtunnel",
+    "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
     "generate-mock-data": "babel-node buildScripts/generateMockData",
     "prestart-mockapi": "npm run generate-mock-data",
     "start-mockapi": "json-server --watch src/api/db.json --port 3001",
