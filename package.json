@@ -1,16 +1,14 @@
 {
-  "name": "javascript-development-environment",
+  "name": "training-fe",
   "version": "1.0.0",
-  "description": "JavaScript development environment",
+  "description": "Training FE",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel open:src start-mockapi",
     "open:src": "babel-node buildScripts/srcServer.js",
-    "localtunnel": "lt --port 3002 --subdomain jesse",
-    "share": "npm-run-all --parallel open:src localtunnel",
+    "share": "npm-run-all --parallel open:src lt --port 3002 --subdomain jesse",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
-    "generate-mock-data": "babel-node buildScripts/generateMockData",
-    "prestart-mockapi": "npm run generate-mock-data",
+    "prestart-mockapi": "babel-node buildScripts/generateMockData",
     "start-mockapi": "json-server --watch src/api/db.json --port 3001",
     "clean-dist": "rimraf ./dist && mkdir dist",
     "prebuild": "npm-run-all clean-dist test lint",
@@ -18,15 +16,14 @@
     "postbuild": "babel-node buildScripts/distServer.js",
     "deploy": "surge ./dist"
   },
-  "dependencies": {
-    "whatwg-fetch": "3.6.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "7.13.0",
     "@babel/core": "7.13.8",
     "@babel/node": "^7.13.0",
     "@babel/preset-env": "7.13.8",
     "@babel/register": "7.13.8",
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "babel-loader": "8.2.2",
     "chai": "4.3.0",
     "chalk": "4.1.0",
@@ -38,7 +35,6 @@
     "eslint-plugin-import": "2.22.1",
     "eslint-watch": "7.0.0",
     "express": "4.17.1",
-    "faker": "^5.4.0",
     "html-webpack-plugin": "5.2.0",
     "jsdom": "^16.4.0",
     "json-schema-faker": "0.5.0-rcv.27",
