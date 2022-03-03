@@ -1,4 +1,4 @@
-import './index.css'
+import './scss/index.scss';
 import { getUsers, deleteUser } from './api/userApi';
 import avatar from './assets/avatar.png';
 

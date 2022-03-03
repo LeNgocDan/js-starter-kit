@@ -1,0 +1,7 @@
+@import 'reset';
+@import 'variables';
+@import 'small-default';
+
+@media screen and (min-width: 1140px) {
+ @import 'large';
+}

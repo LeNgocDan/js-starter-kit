@@ -18,11 +18,6 @@ app.get('/', function (_req, res) {
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 
-app.get('/users', function (_req, res) {
-  res.sendFile(path.join(__dirname, '../src/pages/users.html'));
-});
-
-
 app.listen(port, function (err) {
   if (err) {
     console(err);
