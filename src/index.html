@@ -13,18 +13,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Import the webpage's stylesheet -->
-  <link rel="stylesheet" href="./index.css" />
 </head>
 
 <body>
   <div class="wrapper">
     <aside class="'aside">
       <figure>
-        <img width="100"
-          src="https://scontent.fpnh22-4.fna.fbcdn.net/v/t1.6435-9/93147242_1078752669163938_183020749894713344_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=v5QCtVCQ_bsAX9C5x03&_nc_ht=scontent.fpnh22-4.fna&oh=00_AT9y50BzyfM9YMBnFYj9ih5yvAK7DSGFhoh8VclWfpFc1A&oe=6242966E"
-          alt="avatar" />
+        <img id="avatar" width="100" src="/assets/images/avatar.png" alt="avatar" />
       </figure>
       <p>Hello, I'm Dan! Look like you've found my space on the internet.</p>
       <h2>Contact</h2>
@@ -40,12 +35,15 @@
           <a href="mailto:linuss1908@gmail.com"> -&gt; Contact me!</a>
         </li>
         <li>
-          <a href="users"> -&gt; Users (Fake Data)</a>
+          <a id="loadUsers" href="users"> -&gt; Users (Fake Data)</a>
         </li>
       </ul>
     </aside>
     <main class="main">
       <h3>Hello World!</h3>
+      <div id="content">
+
+      </div>
     </main>
   </div>
 </body>

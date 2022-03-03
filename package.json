@@ -17,7 +17,6 @@
     "postbuild": "babel-node buildScripts/distServer.js",
     "deploy": "surge ./dist"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "7.13.0",
     "@babel/core": "7.13.8",
@@ -36,6 +35,7 @@
     "eslint-plugin-import": "2.22.1",
     "eslint-watch": "7.0.0",
     "express": "4.17.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "5.2.0",
     "jsdom": "^16.4.0",
     "json-schema-faker": "0.5.0-rcv.27",

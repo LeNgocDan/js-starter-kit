@@ -12,7 +12,7 @@ export default {
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
-    filename: "[name].[chunkhash].js",
+    filename: "[name].js",
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -27,6 +27,18 @@ export default {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },
       { test: /\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"] },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images/'
+            }
+          },
+        ],
+      },
     ],
   },
 };
