@@ -4,11 +4,14 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 export default {
   mode: "production",
   devtool: "source-map",
-  entry: "./src/index.js",
+  entry: {
+    main: path.resolve(__dirname, "src/index"),
+    vendor: path.resolve(__dirname, "src/vendor"),
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
-    filename: "bundle.js",
+    filename: "[name].js",
   },
   plugins: [
     // create html file that includes reference to bundled js
@@ -19,7 +22,19 @@ export default {
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.(s(c|a)ss)$/, use: ["style-loader", "css-loader", "sass-loader"] },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images/'
+            }
+          },
+        ],
+      },
     ],
   },
 };
