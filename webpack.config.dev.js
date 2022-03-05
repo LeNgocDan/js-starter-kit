@@ -13,6 +13,7 @@ export default {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
     filename: "[name].js",
+    assetModuleFilename: 'images/[hash][ext][query]'
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -28,16 +29,8 @@ export default {
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },
       { test: /\.(s(c|a)ss)$/, use: ["style-loader", "css-loader", "sass-loader"] },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'assets/images/'
-            }
-          },
-        ],
+        test: /\.(png|jpe?g|gif)$/,
+        type: "asset/resource"
       },
     ],
   },
