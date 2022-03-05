@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://training-fe/./src/vendor.js"],"names":["console","log"],"mappings":"AAAAA,QAAQC,IAAI","file":"vendor.js","sourcesContent":["console.log('test bundle splitting!');\n"],"sourceRoot":""}

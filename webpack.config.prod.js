@@ -12,6 +12,7 @@ export default {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
     filename: "[name].js",
+    assetModuleFilename: 'images/[hash][ext][query]'
   },
   plugins: [
     // create html file that includes reference to bundled js
@@ -25,15 +26,7 @@ export default {
       { test: /\.(s(c|a)ss)$/, use: ["style-loader", "css-loader", "sass-loader"] },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'assets/images/'
-            }
-          },
-        ],
+        type: "asset/resource"
       },
     ],
   },
