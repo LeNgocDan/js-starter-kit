@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import chalk from 'chalk';
 import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
@@ -22,6 +23,7 @@ app.listen(port, function (err) {
   if (err) {
     console(err);
   } else {
+    console.log(chalk.green("Start app in dev mode..."));
     open(`http://localhost:${port}`);
   }
 });

@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "Training FE",
   "scripts": {
-    "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel open:src start-mockapi",
+    "start": "npm-run-all -p open:src start-mockapi",
     "open:src": "babel-node buildScripts/srcServer.js",
     "lt": "lt --port 3000 --subdomain jesse",
-    "share": "npm-run-all --parallel open:src lt start-mockapi",
+    "share": "npm-run-all --p open:src lt start-mockapi",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
     "prestart-mockapi": "babel-node buildScripts/generateMockData",
     "start-mockapi": "json-server --watch src/api/db.json --port 3001",

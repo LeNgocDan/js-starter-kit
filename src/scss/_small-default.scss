@@ -1,8 +1,15 @@
 /* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
-html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
 
 /*  apply a natural box layout model to all elements  */
-* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 body {
   font-family: $primaryFont;
@@ -31,12 +38,13 @@ div.header {
   height: 4rem;
   padding: 0 $gutter;
 
-div {
-  width: 100%;
-  padding: 0 $gutter;
-}
+  div {
+    width: 100%;
+    padding: 0 $gutter;
+  }
+
   div a {
-     color: #24292E;
+    color: #24292E;
     text-decoration: none;
     display: inline-block;
     font-weight: 500;
@@ -47,7 +55,7 @@ div {
 }
 
 .animate-blink {
- animation: blink-animation 1s steps(5, start) infinite;
+  animation: blink-animation 1s steps(5, start) infinite;
   -webkit-animation: blink-animation 1s steps(5, start) infinite;
 }
 
@@ -56,6 +64,7 @@ div {
     visibility: hidden;
   }
 }
+
 @-webkit-keyframes blink-animation {
   to {
     visibility: hidden;
@@ -65,37 +74,37 @@ div {
 main {
   display: flex;
   flex-direction: column;
-   padding: 2rem $gutter;
+  padding: 2rem $gutter;
 
-h2{
-   color: #24292E;
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin: 1.4rem 0 .6rem 0;
+  h2 {
+    color: #24292E;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 1.4rem 0 .6rem 0;
   }
 
-ul {
-  padding: .5rem 1rem;
-  list-style: none;
-}
+  ul {
+    padding: .5rem 1rem;
+    list-style: none;
+  }
 
-ul li a {
-  text-decoration: none;
-  display: block;
-  padding: .3rem 0;
-  color: #24292E;
-  font-weight: 500;
-}
+  ul li a {
+    text-decoration: none;
+    display: block;
+    padding: .3rem 0;
+    color: #24292E;
+    font-weight: 500;
+  }
 
-i {
-   color: #24292E;
- font-style: italic;
-}
+  i {
+    color: #24292E;
+    font-style: italic;
+  }
 
-p{
-   color: #24292E;
-   font-size: 1.1rem;
-}
+  p {
+    color: #24292E;
+    font-size: 1.1rem;
+  }
 }
 
 .inline-block {
