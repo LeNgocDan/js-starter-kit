@@ -31,9 +31,8 @@ loadUserLink.onclick = (event) => {
         <th>Last Name</th>
         <th>Email</th>
       </thead>
-      <tbody>
     ${usersBody}
-   </tbody>
+  </tbody>
   </table>
     `
 
