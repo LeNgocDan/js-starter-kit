@@ -20,7 +20,7 @@ export default {
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      favicon: "src/favicon.ico"
+      favicon: "./src/assets/favicon.ico"
     }),
   ],
   module: {
@@ -28,7 +28,7 @@ export default {
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },
       { test: /\.(s(c|a)ss)$/, use: ["style-loader", "css-loader", "sass-loader"] },
       {
-        test: /\.(png|jpe?g|gif|ico)$/,
+        test: /\.(png|jpe?g|gif)$/,
         type: "asset/resource"
       },
     ],
