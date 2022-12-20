@@ -17,3 +17,90 @@ main {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
+
+/* GRID */
+.limit {
+  max-width: 992px;
+  margin: auto;
+}
+
+.card-container {
+  border: 2px solid red;
+  padding: 1rem;
+}
+
+.card {
+  margin: 0 10px;
+  background-color: #000000;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .card-text {
+    font-size: 33px;
+    font-weight: bold;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pulse i {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.pulse {
+  background: #31f314;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pulse::before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border: 2px solid #31f314;
+  border-radius: 50%;
+  animation: animate 1.5s linear infinite;
+}
+
+.pulse::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border: 2px solid #31f314;
+  border-radius: 50%;
+  animation: animate 1.5s linear infinite;
+  animation-delay: 0.4s;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
