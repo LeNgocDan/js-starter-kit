@@ -24,11 +24,10 @@ playBtn.onclick = function () {
       textNumbers[i].innerHTML = number;
       result = result + number;
     }
-    alert(result);
     const winner = users.find(sel => sel.id == result);
     if (winner) {
       console.log(winner.name);
     }
-  }, 5000);
+  }, 3000);
 }
 
