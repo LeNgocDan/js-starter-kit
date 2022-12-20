@@ -2,11 +2,13 @@ import './scss/index.scss';
 import avatar from './assets/avatar.png';
 import { rest } from './api/apiUtils';
 
+console.log(avatar);
 global.document.getElementById('avatar').src = avatar;
 const loadUserLink = global.document.getElementById('loadUsers');
 
 loadUserLink.onclick = (event) => {
   event.preventDefault();
+  console.log('call here');
   const successCb = (result) => {
     let usersBody = "";
 

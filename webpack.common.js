@@ -20,7 +20,7 @@ export default {
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      favicon: "./src/assets/favicon.ico"
+      favicon: "./src/assets/award.png"
     }),
   ],
   module: {
