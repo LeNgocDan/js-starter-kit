@@ -1,10 +1,17 @@
 import './scss/index.scss';
-import xsmb from './assets/xsmb.jpg';
-console.log('test bundle splitting!');
-const cardImgs = global.document.getElementsByClassName('card-img-top');
-console.log(cardImgs);
-cardImgs.forEach(imgEle => {
-  console.log(imgEle);
-  imgEle.src = xsmb;
-});
+console.log('call index.js!');
+
+function play() {
+  console.log('call here');
+}
+
+const playBtn = document.getElementById('spin');
+playBtn.onclick = function () {
+  const imgAwardEle = document.getElementById('img-award');
+  imgAwardEle.style = "display: none";
+  const gifEle = document.getElementById('gif');
+  gifEle.style = "display: flex";
+  var audio = new Audio('./assets/music.mp3');
+  audio.play();
+}
 
