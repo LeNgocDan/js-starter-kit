@@ -1,1 +1,1 @@
-console.log('test bundle splitting!');
+console.log('call vender.js');
