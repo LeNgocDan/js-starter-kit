@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>home/nqcdan</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/odometer@0.4.8/themes/odometer-theme-default.css">
+  <script src="https://cdn.jsdelivr.net/npm/odometer@0.4.8/odometer.min.js"></script>
+  <title>home/nqcdan~luongdat</title>
 </head>
 
 <body>
@@ -17,49 +19,62 @@
         <span class="animate-blink">▮</span>
       </div>
     </div>
-    <main class="limit d-flex">
-      <div class="mb-4 container flex-column">
+    <main class="container-fluid">
+      <div class="container">
         <iframe id="gif" src="https://giphy.com/embed/cPZML3OeaKDrW8dgMZ" width="900" height="500"
           frameBorder="0"></iframe>
-        <img id="img-award" height="500" width="900"
-          src="http://cdn.tgdd.vn/Files/2020/10/10/1297792/noel-2020-ngay-nao-thu-may-nguon-goc-va-y-nghia-cua-ngay-le-noel-le-giang-sinh-202010102030173176.jpg"
-          alt="award image" />
+        <div class="stage" id="curtain-award"">
+          <div class=" stage-content"></div>
+        <label class="curtain-container">
+          <div class="curtain-panel">
+            <input type="checkbox" class="curtain-trigger" />
+            <div class="left-curtain curtain" data-title="Click to reveal a special reward..."></div>
+            <div class="right-curtain curtain" data-title="Click to reveal a special reward..."></div>
+          </div>
+        </label>
       </div>
-      <div class="container card-container">
-        <div class="card" style="width: 20rem;">
-          <div class="card-body">
-            <p class="card-text">0</p>
-          </div>
-        </div>
-        <div class="card" style="width: 20rem;">
-          <div class="card-body">
-            <p class="card-text">0</p>
-          </div>
-        </div>
-        <div class="card" style="width: 20rem;">
-          <div class="card-body">
-            <p class="card-text">0</p>
-          </div>
-        </div>
-        <div class="card" style="width: 20rem;">
-          <div class="card-body">
-            <p class="card-text">0</p>
-          </div>
-        </div>
-        <div class="card" style="width: 20rem;">
-          <div class="card-body">
-            <p class="card-text">0</p>
-          </div>
-        </div>
+  </div>
+  <div class="container card-container">
+    <div class="card" style="width: 20rem;">
+      <div class="card-body">
+        <div class="odometer" class="odometer" id="odometer">0</div>
       </div>
-      <div class="container mt-5">
-        <button id="spin" onclick="" class="pulse">Quay</button>
+    </div>
+    <div class="card" style="width: 20rem;">
+      <div class="card-body">
+        <div class="odometer" class="odometer" id="odometer">0</div>
       </div>
-    </main>
+    </div>
+    <div class="card" style="width: 20rem;">
+      <div class="card-body">
+        <div class="odometer" class="odometer" id="odometer">0</div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <button id="spin" onclick="" class="pulse">Quay</button>
+  </div>
+  </main>
+  <div class="container">
+    <div class="counter">
+      <!-- <div class="odometer" class="odometer" id="odometer">0</div> -->
+    </div>
+  </div>
   </div>
   <audio preload="auto" id="audio">
     <source src="" type="audio/mpeg" />
   </audio>
 </body>
+
+<script>
+  window.odometerOptions = {
+    auto: false,
+    selector: '.odometer',
+    format: 'd', // Change how digit groups are formatted, and how many digits are shown after the decimal point
+    duration: 3000, // Change how long the javascript expects the CSS animation to take
+    theme: 'default',
+    animation: 'count' // Count is a simpler animation method which just increments the value,
+  };
+</script>
 
 </html>

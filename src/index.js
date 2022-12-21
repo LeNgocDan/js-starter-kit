@@ -2,41 +2,64 @@ import './scss/index.scss';
 import audio from './assets/music.mp3';
 console.log('call index.js!');
 
-console.log(audio);
+var odometer = document.getElementsByClassName("odometer");
 
-const users = [{ id: '00001', name: "Le Ngoc Dan" }, { id: '12340', name: "Luong Van Dat" }];
+// const users = [{ id: '00001', name: "Le Ngoc Dan" }, { id: '12340', name: "Luong Van Dat" }];
 
 const playBtn = document.getElementById('spin');
 const audioEle = document.getElementById('audio');
 
-playBtn.onclick = function () {
+const curtainAwardEle = document.getElementById('curtain-award');
+curtainAwardEle.style = "display: none";
+
+
+const isMultiScrolling = true;
+
+let currentScrollingIndex = 0;
+
+audioEle.src = audio;
+playBtn.onclick = () => {
   playBtn.disabled = "disabled";
-  audioEle.src = audio;
-  //var audio = new Audio(audio);
   audioEle.play();
-
-  const imgAwardEle = document.getElementById('img-award');
-  imgAwardEle.style = "display: none";
-  const gifEle = document.getElementById('gif');
-  gifEle.style = "display: flex";
-  const textNumbers = document.getElementsByClassName('card-text')
-
-  setTimeout(function () {
-    let result = "";
-    imgAwardEle.style = "";
-    gifEle.style = "display: none";
-    for (let i = 0; i < textNumbers.length; i++) {
-      const number = Math.floor(Math.random() * 10);
-      textNumbers[i].innerHTML = number;
-      result = result + number;
+  // const gifEle = document.getElementById('gif');
+  if (!isMultiScrolling) {
+    if (!odometer[currentScrollingIndex].classList.contains("scroll-done")) {
+      scroll(odometer[currentScrollingIndex]);
+    } else {
+      currentScrollingIndex++;
+      scroll(odometer[currentScrollingIndex]);
     }
-    const winner = users.find(sel => sel.id == result);
-    if (winner) {
-      console.log(winner.name);
+  }
+  else {
+    for(var i = 0; i < odometer.length; i++) {
+      odometer[i].innerHTML = 0;
+      scroll(odometer[i]);
     }
+  }
+}
+
+function scroll(odometerEle) {
+  const od = new global.Odometer({
+    el: odometerEle,
+    value: 0,
+    format: '',
+    theme: 'digital'
+  });
+  od.update(getRandomNumber())
+
+  setTimeout(() => {
     audioEle.pause();
-    audioEle.load();
-    playBtn.disabled = "";
-  }, 6000);
+    console.log(odometer.length);
+    if (currentScrollingIndex + 2 > odometer.length) {
+      playBtn.disabled = "disabled";
+    } else {
+      playBtn.disabled = "";
+    }
+    odometerEle.classList.add("scroll-done");
+  }, 3000)
+}
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 10);
 }
 
