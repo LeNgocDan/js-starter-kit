@@ -29,7 +29,18 @@ export default {
       { test: /\.(s(c|a)ss)$/, use: ["style-loader", "css-loader", "sass-loader"] },
       {
         test: /\.(png|jpe?g|gif)$/,
-        type: "asset/resource"
+        type: "asset/resource",
+      },
+      {
+        test: /\.(mp3|wav|wma|ogg)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[contenthash].[ext]',
+            outputPath: 'assets/audio/',
+            publicPath: 'assets/audio/'
+          }
+        }
       },
     ],
   },

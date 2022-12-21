@@ -1,19 +1,25 @@
 import './scss/index.scss';
+import audio from './assets/music.mp3';
 console.log('call index.js!');
 
+console.log(audio);
 
 const users = [{ id: '00001', name: "Le Ngoc Dan" }, { id: '12340', name: "Luong Van Dat" }];
 
 const playBtn = document.getElementById('spin');
+const audioEle = document.getElementById('audio');
+
 playBtn.onclick = function () {
+  playBtn.disabled = "disabled";
+  audioEle.src = audio;
+  //var audio = new Audio(audio);
+  audioEle.play();
+
   const imgAwardEle = document.getElementById('img-award');
   imgAwardEle.style = "display: none";
   const gifEle = document.getElementById('gif');
   gifEle.style = "display: flex";
   const textNumbers = document.getElementsByClassName('card-text')
-
-  // var audio = new Audio('https://youtu.be/zAoroV6Dgdc');
-  // audio.play();
 
   setTimeout(function () {
     let result = "";
@@ -28,6 +34,9 @@ playBtn.onclick = function () {
     if (winner) {
       console.log(winner.name);
     }
-  }, 3000);
+    audioEle.pause();
+    audioEle.load();
+    playBtn.disabled = "";
+  }, 6000);
 }
 
