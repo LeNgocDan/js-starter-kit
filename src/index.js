@@ -13,7 +13,7 @@ const curtainAwardEle = document.getElementById('curtain-award');
 curtainAwardEle.style = "display: block";
 
 
-const isMultiScrolling = false;
+const isMultiScrolling = true;
 
 let currentScrollingIndex = 0;
 const gifEle = document.getElementById('gif');
