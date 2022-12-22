@@ -13,7 +13,7 @@ const curtainAwardEle = document.getElementById('curtain-award');
 curtainAwardEle.style = "display: block";
 
 
-const isMultiScrolling = false;
+const isMultiScrolling = true;
 
 let currentScrollingIndex = 0;
 const gifEle = document.getElementById('gif');
@@ -31,7 +31,7 @@ playBtn.onclick = () => {
     }
   }
   else {
-    for(var i = 0; i < odometer.length; i++) {
+    for (var i = 0; i < odometer.length; i++) {
       odometer[i].innerHTML = 0;
       scroll(odometer[i]);
     }
