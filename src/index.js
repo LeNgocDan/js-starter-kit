@@ -10,18 +10,18 @@ const playBtn = document.getElementById('spin');
 const audioEle = document.getElementById('audio');
 
 const curtainAwardEle = document.getElementById('curtain-award');
-curtainAwardEle.style = "display: none";
+curtainAwardEle.style = "display: block";
 
 
-const isMultiScrolling = true;
+const isMultiScrolling = false;
 
 let currentScrollingIndex = 0;
+const gifEle = document.getElementById('gif');
 
 audioEle.src = audio;
 playBtn.onclick = () => {
   playBtn.disabled = "disabled";
   audioEle.play();
-  // const gifEle = document.getElementById('gif');
   if (!isMultiScrolling) {
     if (!odometer[currentScrollingIndex].classList.contains("scroll-done")) {
       scroll(odometer[currentScrollingIndex]);
@@ -41,21 +41,22 @@ playBtn.onclick = () => {
 function scroll(odometerEle) {
   const od = new global.Odometer({
     el: odometerEle,
-    value: 0,
-    format: '',
-    theme: 'digital'
+    format: 'd',
+    theme: 'default'
   });
   od.update(getRandomNumber())
-
+  curtainAwardEle.style = "display: none";
+  gifEle.style = "display: flex";
   setTimeout(() => {
     audioEle.pause();
-    console.log(odometer.length);
     if (currentScrollingIndex + 2 > odometer.length) {
       playBtn.disabled = "disabled";
     } else {
       playBtn.disabled = "";
     }
     odometerEle.classList.add("scroll-done");
+    gifEle.style = "display: none";
+    curtainAwardEle.style = "display: block";
   }, 3000)
 }
 
@@ -63,3 +64,4 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 10);
 }
 
+// fake call api for testing
