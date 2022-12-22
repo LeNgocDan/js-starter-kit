@@ -31,7 +31,7 @@ playBtn.onclick = () => {
     }
   }
   else {
-    for(var i = 0; i < odometer.length; i++) {
+    for (var i = 0; i < odometer.length; i++) {
       odometer[i].innerHTML = 0;
       scroll(odometer[i]);
     }
