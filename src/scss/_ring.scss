@@ -18,7 +18,7 @@ body {
 .stage-m {
   position: absolute;
   top: 0;
-  left: -240px;
+  left: -27px;
 }
 
 .perspective-on {
@@ -36,12 +36,13 @@ body {
 
 #rotate {
   margin: 0 auto 0;
-  width: 1025px;
+  width: 600px;
   height: 220px;
   padding-top: 200px;
   /* Ensure that we're in 3D space */
   // transform-style: preserve-3d;
   display: flex;
+  justify-content: space-between;
 }
 
 .ring {

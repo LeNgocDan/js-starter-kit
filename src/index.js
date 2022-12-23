@@ -1,15 +1,21 @@
 const $ = require('jquery')
+import seedMapping from './seedMapping';
 import './scss/index.scss';
 import audio from './assets/music.mp3';
 console.log('call index.js!');
 
 // scroll type
-const isMultiScrolling = true;
+const isMultiScrolling = false;
 
 // initiate slots
-const initRingIndex = [2, 3, 4];
+const initRingIndex = [1, 2, 3];
 
-// const users = [{ id: '00001', name: "Le Ngoc Dan" }, { id: '12340', name: "Luong Van Dat" }];
+const initResult = [2, 7, 9];
+
+function findSeed(result) {
+  return seedMapping.find((s) => s.result === result).seed;
+}
+
 
 const playBtn = document.getElementById('slot-trigger');
 const audioEle = document.getElementById('audio');
@@ -22,7 +28,7 @@ audioEle.src = audio;
 playBtn.onclick = () => {
   console.log("click");
   playBtn.disabled = "disabled";
-  audioEle.play();
+  // audioEle.play();
 }
 
 const SLOTS_PER_REEL = 12;
@@ -56,18 +62,56 @@ function getSeed2() {
 
 function spinAllRing(timer) {
   var result = "";
-  for (var i = 2; i < 5; i++) {
+  for (var i = 1; i <= 3; i++) {
     var oldSeed = -1;
     var oldClass = $('#ring-' + i).attr('class');
     if (oldClass.length > 4) {
       oldSeed = parseInt(oldClass.slice(10));
     }
+    if (!initResult) {
+      var seed = getSeed();
+      if (i == 2) {
+        seed = getSeed2();
+      }
+      while (oldSeed == seed) {
+        if (i == 2) {
+          seed = getSeed2();
+        } else {
+          seed = getSeed();
+        }
+      }
+      console.log("seed: " + seed);
+      result += (seed + 4) % SLOTS_PER_REEL % 10;
+      console.log("result: " + result);
+
+      $('#ring-' + i)
+        .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + i * 1) + 's')
+        .attr('class', 'ring spin-' + seed);
+      console.log(result);
+    } else {
+      var iSeed = findSeed(initResult[i - 1])
+      $('#ring-' + i)
+        .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
+        .attr('class', 'ring spin-' + iSeed);
+    }
+  }
+}
+
+let currentRingIndex = 0;
+function spinEachRing(timer, ringIndex) {
+  var result = "";
+  if (!initResult) {
+    var oldSeed = -1;
+    var oldClass = $('#ring-' + ringIndex).attr('class');
+    if (oldClass.length > 4) {
+      oldSeed = parseInt(oldClass.slice(10));
+    }
     var seed = getSeed();
-    if (i == 2) {
+    if (ringIndex[currentRingIndex] == 2) {
       seed = getSeed2();
     }
     while (oldSeed == seed) {
-      if (i == 2) {
+      if (ringIndex[currentRingIndex] == 2) {
         seed = getSeed2();
       } else {
         seed = getSeed();
@@ -76,39 +120,16 @@ function spinAllRing(timer) {
     console.log("seed: " + seed);
     result += (seed + 4) % SLOTS_PER_REEL % 10;
 
-    $('#ring-' + i)
-      .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + i * 1) + 's')
+    $('#ring-' + ringIndex[currentRingIndex])
+      .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + ringIndex[currentRingIndex] * 1) + 's')
       .attr('class', 'ring spin-' + seed);
+    console.log(result);
+  } else {
+    var iSeed = findSeed(initResult[currentRingIndex]);
+    $('#ring-' + ringIndex[currentRingIndex])
+      .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + ringIndex[currentRingIndex] * 1) + 's')
+      .attr('class', 'ring spin-' + iSeed);
   }
-  console.log(result);
-}
-
-let currentRingIndex = 0;
-function spinEachRing(timer, ringIndex) {
-  var result = "";
-  var oldSeed = -1;
-  var oldClass = $('#ring-' + ringIndex).attr('class');
-  if (oldClass.length > 4) {
-    oldSeed = parseInt(oldClass.slice(10));
-  }
-  var seed = getSeed();
-  if (ringIndex[currentRingIndex] == 2) {
-    seed = getSeed2();
-  }
-  while (oldSeed == seed) {
-    if (ringIndex[currentRingIndex] == 2) {
-      seed = getSeed2();
-    } else {
-      seed = getSeed();
-    }
-  }
-  console.log("seed: " + seed);
-  result += (seed + 4) % SLOTS_PER_REEL % 10;
-
-  $('#ring-' + ringIndex[currentRingIndex])
-    .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + ringIndex[currentRingIndex] * 1) + 's')
-    .attr('class', 'ring spin-' + seed);
-  console.log(result);
   if (currentRingIndex < ringIndex.length) {
     currentRingIndex++;
   }
