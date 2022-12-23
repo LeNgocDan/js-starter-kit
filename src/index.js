@@ -10,7 +10,8 @@ const isMultiScrolling = false;
 // initiate slots
 const initRingIndex = [1, 2, 3];
 
-const initResult = [2, 7, 9];
+// const initResult = [2, 7, 9];
+const initResult = false;
 
 function findSeed(result) {
   return seedMapping.find((s) => s.result === result).seed;
@@ -82,24 +83,24 @@ function spinAllRing(timer) {
       }
       console.log("seed: " + seed);
       result += (seed + 4) % SLOTS_PER_REEL % 10;
-      console.log("result: " + result);
 
       $('#ring-' + i)
-        .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + i * 1) + 's')
-        .attr('class', 'ring spin-' + seed);
+      .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + i * 1) + 's')
+      .attr('class', 'ring spin-' + seed);
       console.log(result);
     } else {
       var iSeed = findSeed(initResult[i - 1])
       $('#ring-' + i)
-        .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
-        .attr('class', 'ring spin-' + iSeed);
+      .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
+      .attr('class', 'ring spin-' + iSeed);
     }
+    console.log("result: " + result);
   }
 }
 
 let currentRingIndex = 0;
+var resultAfterEachSpin = "";
 function spinEachRing(timer, ringIndex) {
-  var result = "";
   if (!initResult) {
     var oldSeed = -1;
     var oldClass = $('#ring-' + ringIndex).attr('class');
@@ -117,13 +118,11 @@ function spinEachRing(timer, ringIndex) {
         seed = getSeed();
       }
     }
-    console.log("seed: " + seed);
-    result += (seed + 4) % SLOTS_PER_REEL % 10;
+    resultAfterEachSpin += (seed + 4) % SLOTS_PER_REEL % 10;
 
     $('#ring-' + ringIndex[currentRingIndex])
       .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + ringIndex[currentRingIndex] * 1) + 's')
       .attr('class', 'ring spin-' + seed);
-    console.log(result);
   } else {
     var iSeed = findSeed(initResult[currentRingIndex]);
     $('#ring-' + ringIndex[currentRingIndex])
@@ -132,6 +131,11 @@ function spinEachRing(timer, ringIndex) {
   }
   if (currentRingIndex < ringIndex.length) {
     currentRingIndex++;
+  }
+  if (currentRingIndex == 3) {
+    console.log(resultAfterEachSpin);
+    resultAfterEachSpin = "";
+    currentRingIndex = 0;
   }
 }
 
