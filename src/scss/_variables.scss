@@ -8,3 +8,8 @@ $boldWeight: 700;
 
 $gutter: 2%;
 $gutterdb: (2 * $gutter);
+
+$width: 50vw;
+$height: 100vh;
+$machineWidth: calc(#{$width} * .7);
+$machineHeight: 266px;

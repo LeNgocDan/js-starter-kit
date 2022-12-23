@@ -1,67 +1,181 @@
+const $ = require('jquery')
 import './scss/index.scss';
 import audio from './assets/music.mp3';
 console.log('call index.js!');
 
-var odometer = document.getElementsByClassName("odometer");
+// scroll type
+const isMultiScrolling = true;
+
+// initiate slots
+const initRingIndex = [2, 3, 4];
 
 // const users = [{ id: '00001', name: "Le Ngoc Dan" }, { id: '12340', name: "Luong Van Dat" }];
 
-const playBtn = document.getElementById('spin');
+const playBtn = document.getElementById('slot-trigger');
 const audioEle = document.getElementById('audio');
 
-const curtainAwardEle = document.getElementById('curtain-award');
-curtainAwardEle.style = "display: block";
-
-
-const isMultiScrolling = true;
-
-let currentScrollingIndex = 0;
-const gifEle = document.getElementById('gif');
+// const curtainAwardEle = document.getElementById('curtain-award');
+// curtainAwardEle.style = "display: block";
+// const gifEle = document.getElementById('gif');
 
 audioEle.src = audio;
 playBtn.onclick = () => {
+  console.log("click");
   playBtn.disabled = "disabled";
   audioEle.play();
-  if (!isMultiScrolling) {
-    if (!odometer[currentScrollingIndex].classList.contains("scroll-done")) {
-      scroll(odometer[currentScrollingIndex]);
+}
+
+const SLOTS_PER_REEL = 12;
+const REEL_RADIUS = 150;
+
+function createSlots(ring) {
+
+  var slotAngle = 360 / SLOTS_PER_REEL;
+
+  var seed = 0;
+
+  for (var i = 0; i < SLOTS_PER_REEL; i++) {
+    var slot = document.createElement('div');
+    slot.className = 'slot';
+    var transform = 'rotateX(' + (slotAngle * i) + 'deg) translateZ(' + REEL_RADIUS + 'px)';
+    slot.style.transform = transform;
+    $(slot).append('<p>' + ((seed + i) % 10) + '</p>');
+    ring.append(slot);
+  }
+}
+
+function getSeed() {
+  // generate random number smaller than 13 then floor it to settle between 0 and 12 inclusive
+  return Math.floor(Math.random() * (SLOTS_PER_REEL));
+}
+
+function getSeed2() {
+  // generate random number smaller than 13 then floor it to settle between 0 and 12 inclusive
+  return Math.floor(Math.random() * (5) + 6);
+}
+
+function spinAllRing(timer) {
+  var result = "";
+  for (var i = 2; i < 5; i++) {
+    var oldSeed = -1;
+    var oldClass = $('#ring-' + i).attr('class');
+    if (oldClass.length > 4) {
+      oldSeed = parseInt(oldClass.slice(10));
+    }
+    var seed = getSeed();
+    if (i == 2) {
+      seed = getSeed2();
+    }
+    while (oldSeed == seed) {
+      if (i == 2) {
+        seed = getSeed2();
+      } else {
+        seed = getSeed();
+      }
+    }
+    console.log("seed: " + seed);
+    result += (seed + 4) % SLOTS_PER_REEL % 10;
+
+    $('#ring-' + i)
+      .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + i * 1) + 's')
+      .attr('class', 'ring spin-' + seed);
+  }
+  console.log(result);
+}
+
+let currentRingIndex = 0;
+function spinEachRing(timer, ringIndex) {
+  var result = "";
+  var oldSeed = -1;
+  var oldClass = $('#ring-' + ringIndex).attr('class');
+  if (oldClass.length > 4) {
+    oldSeed = parseInt(oldClass.slice(10));
+  }
+  var seed = getSeed();
+  if (ringIndex[currentRingIndex] == 2) {
+    seed = getSeed2();
+  }
+  while (oldSeed == seed) {
+    if (ringIndex[currentRingIndex] == 2) {
+      seed = getSeed2();
     } else {
-      currentScrollingIndex++;
-      scroll(odometer[currentScrollingIndex]);
+      seed = getSeed();
     }
   }
-  else {
-    for (var i = 0; i < odometer.length; i++) {
-      odometer[i].innerHTML = 0;
-      scroll(odometer[i]);
-    }
+  console.log("seed: " + seed);
+  result += (seed + 4) % SLOTS_PER_REEL % 10;
+
+  $('#ring-' + ringIndex[currentRingIndex])
+    .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + ringIndex[currentRingIndex] * 1) + 's')
+    .attr('class', 'ring spin-' + seed);
+  console.log(result);
+  if (currentRingIndex < ringIndex.length) {
+    currentRingIndex++;
   }
 }
 
-function scroll(odometerEle) {
-  const od = new global.Odometer({
-    el: odometerEle,
-    format: 'd',
-    theme: 'default'
-  });
-  od.update(getRandomNumber())
-  curtainAwardEle.style = "display: none";
-  gifEle.style = "display: flex";
-  setTimeout(() => {
-    audioEle.pause();
-    if (currentScrollingIndex + 2 > odometer.length) {
-      playBtn.disabled = "disabled";
+$(document).ready(function () {
+
+  for (var ringIndex of initRingIndex) {
+    createSlots($('#ring-' + ringIndex));
+  }
+
+  // hook start button
+  $('.go').on('click', function () {
+    var timer = 5;
+    if (isMultiScrolling) {
+      spinAllRing(timer);
     } else {
-      playBtn.disabled = "";
+      spinEachRing(timer, initRingIndex);
     }
-    odometerEle.classList.add("scroll-done");
-    gifEle.style = "display: none";
-    curtainAwardEle.style = "display: block";
-  }, 3000)
-}
+  })
 
-function getRandomNumber() {
-  return Math.floor(Math.random() * 10);
-}
+  // hook xray checkbox
+  $('#xray').on('click', function () {
+    //var isChecked = $('#xray:checked');
+    var tilt = 'tiltout';
 
-// fake call api for testing
+    if ($(this).is(':checked')) {
+      tilt = 'tiltin';
+      $('.slot').addClass('backface-on');
+      $('#rotate').css('animation', tilt + ' 2s 1');
+
+      setTimeout(function () {
+        $('#rotate').toggleClass('tilted');
+      }, 2000);
+    } else {
+      tilt = 'tiltout';
+      $('#rotate').css({ 'animation': tilt + ' 2s 1' });
+
+      setTimeout(function () {
+        $('#rotate').toggleClass('tilted');
+        $('.slot').removeClass('backface-on');
+      }, 1900);
+    }
+  })
+
+  // hook perspective
+  $('#perspective').on('click', function () {
+    $('#stage').toggleClass('perspective-on perspective-off');
+  })
+});
+
+// // // fake call api for testing
+
+$(document).ready(function () {
+  var btnSpin = $('#slot-trigger'),
+    head = $('#head'),
+    stick = $('#stick'),
+    hole = $('#hole');
+
+  function slotTriggerMove() {
+    global.TweenMax.set([head, stick, hole], { y: 0, scale: 1 });
+    global.TweenMax.to(head, .4, { y: 70, repeat: 1, yoyo: true, ease: global.Sine.easeIn });
+    global.TweenMax.to(stick, .4, { y: 14, scaleY: .3, transformOrigin: "50% 100%", repeat: 1, yoyo: true, ease: global.Sine.easeIn });
+    global.TweenMax.to(hole, .4, { y: 10, scaleY: 2, repeat: 1, yoyo: true, ease: global.Sine.easeIn });
+  }
+
+  btnSpin.click(function () {
+    slotTriggerMove();
+  })
+});
