@@ -3,39 +3,26 @@ import seedMapping from './seedMapping';
 import './scss/index.scss';
 import audio from './assets/music.mp3';
 import video from './assets/roll.mp4'
-console.log('call index.js!');
 
 // scroll type
-const isMultiScrolling = false;
+const isMultiScrolling = true;
 
 // initiate slots
 const initRingIndex = [1, 2, 3];
 
-// const initResult = [2, 7, 9];
-const initResult = false;
+const initResult = ![7, 2, 8];
 
 function findSeed(result) {
   return seedMapping.find((s) => s.result === result).seed;
 }
 
 
-const playBtn = document.getElementById('slot-trigger');
 const audioEle = document.getElementById('audio');
 const videoEle = document.getElementById('video');
 const curtainContainerEle = document.getElementById('curtain-container');
 
-// const curtainAwardEle = document.getElementById('curtain-award');
-// curtainAwardEle.style = "display: block";
-// const gifEle = document.getElementById('gif');
-
 audioEle.src = audio;
 videoEle.src = video;
-playBtn.onclick = () => {
-  console.log("click");
-  playBtn.disabled = "disabled";
-  // audioEle.play();
-
-}
 
 const SLOTS_PER_REEL = 12;
 const REEL_RADIUS = 150;
@@ -152,12 +139,19 @@ $(document).ready(function () {
 
   // hook start button
   $('.go').on('click', function () {
-    var timer = 5;
+    var timer = 2;
+    var delay = 1;
     curtainContainerEle.style.display = 'none';
     videoEle.play();
     audioEle.play();
     if (isMultiScrolling) {
       spinAllRing(timer);
+      setTimeout(() => {
+        videoEle.pause();
+        audioEle.pause();
+        curtainContainerEle.style.display = 'block';
+        videoEle.style.display = 'none';
+      }, (timer + initRingIndex.length + delay) * 1000);
     } else {
       spinEachRing(timer, initRingIndex);
     }
