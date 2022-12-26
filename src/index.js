@@ -77,14 +77,14 @@ function spinAllRing(timer) {
       result += (seed + 4) % SLOTS_PER_REEL % 10;
 
       $('#ring-' + i)
-      .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + i * 1) + 's')
-      .attr('class', 'ring spin-' + seed);
+        .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + i * 1) + 's')
+        .attr('class', 'ring spin-' + seed);
       console.log(result);
     } else {
       var iSeed = findSeed(initResult[i - 1])
       $('#ring-' + i)
-      .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
-      .attr('class', 'ring spin-' + iSeed);
+        .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
+        .attr('class', 'ring spin-' + iSeed);
     }
     console.log("result: " + result);
   }
@@ -139,7 +139,7 @@ $(document).ready(function () {
 
   // hook start button
   $('.go').on('click', function () {
-    var timer = 2;
+    var timer = 17;
     var delay = 1;
     curtainContainerEle.style.display = 'none';
     videoEle.play();
