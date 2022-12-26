@@ -45,8 +45,8 @@ div.wrapper {
 .stage {
   background: #fff;
   width: 900px;
-  height: 500px;
-  margin: 4em auto;
+  height: 400px;
+  margin-top: 4em;
   border: 15px solid #333;
   box-shadow: 1px 4px 11px #aaa, inset 1px 3px 6px #ccc;
   padding: 1em 0 3em;
@@ -71,14 +71,12 @@ div.wrapper {
 }
 
 .curtain-container {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  width: 100%;
 
   .curtain-panel {
     display: flex;
@@ -128,6 +126,15 @@ div.wrapper {
       right: 0;
     }
   }
+}
+
+#video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
 }
 
 .curtain-trigger {

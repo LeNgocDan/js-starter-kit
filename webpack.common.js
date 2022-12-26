@@ -28,7 +28,7 @@ export default {
       { test: /\.js$/, exclude: /node_modules/, use: ["babel-loader"] },
       { test: /\.(s(c|a)ss)$/, use: ["style-loader", "css-loader", "sass-loader"] },
       {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(png|jpe?g|gif|mp4)$/,
         type: "asset/resource",
       },
       {
