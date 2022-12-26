@@ -66,6 +66,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "bootstrap": "^5.2.3",
-    "jquery": "^3.6.3"
+    "jquery": "^3.6.3",
+    "tsparticles-engine": "^2.7.1"
   }
 }

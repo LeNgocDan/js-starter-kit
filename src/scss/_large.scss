@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
-  background: #00182f;
-  color: white;
+  background-color: black;
+  // color: white;
   font-family: 'Lato', sans-serif;
 }
 
@@ -20,7 +20,7 @@ div.wrapper {
   height: 100%;
   overflow: hidden;
   box-shadow: 0 0 10px #000000;
-  background-color: #fff;
+  // background-color: #fff;
   display: flex;
   flex-direction: column;
 }
