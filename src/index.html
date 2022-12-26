@@ -19,21 +19,7 @@
         <span class="animate-blink">▮</span>
       </div>
     </div>
-    <div class="container">
-      <iframe id="gif" src="https://giphy.com/embed/cPZML3OeaKDrW8dgMZ" width="900" height="650"
-        frameBorder="0"></iframe>
-      <div class="stage" id="curtain-award">
-        <div class=" stage-content"></div>
-        <label class="curtain-container">
-          <div class="curtain-panel">
-            <input type="checkbox" class="curtain-trigger" />
-            <div class="left-curtain curtain" data-title="Click to reveal a special reward..."></div>
-            <div class="right-curtain curtain" data-title="Click to reveal a special reward..."></div>
-          </div>
-        </label>
-      </div>
-    </div>
-    <div class="container">
+    <div class="container" style="margin-top: 5em;">
       <div class="m-slot">
         <div class="base-machine">
           <div class="base-frame">
@@ -88,6 +74,22 @@
           </svg>
 
         </div>
+      </div>
+    </div>
+    <div class="container">
+      <iframe id="gif" src="https://giphy.com/embed/cPZML3OeaKDrW8dgMZ" width="900" height="650" frameBorder="0"></iframe>
+      <div class="stage" id="curtain-award">
+        <div class="stage-content"></div>
+        <video id="video" loop>
+          <source src="" type="video/mp4" />
+        </video>
+        <label class="curtain-container" id="curtain-container">
+          <div class="curtain-panel">
+            <input type="checkbox" class="curtain-trigger" />
+            <div class="left-curtain curtain" data-title="Bấm để xem người may mắn..."></div>
+            <div class="right-curtain curtain" data-title="Bấm để xem người may mắn..."></div>
+          </div>
+        </label>
       </div>
     </div>
     <audio preload="auto" id="audio">
