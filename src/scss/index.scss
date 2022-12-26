@@ -10,8 +10,8 @@
 
 @import 'ring';
 
-@media screen and (min-width: 1140px) {
-  @import 'large';
-}
+@import 'large';
+// @media screen and (min-width: 1140px) {
+// }
 
 @import "~bootstrap/scss/bootstrap";
