@@ -13,7 +13,7 @@
     "clean-dist": "rimraf ./dist && mkdir dist",
     "prebuild": "npm run clean-dist",
     "build": "babel-node buildScripts/build.js",
-    "postbuild": "babel-node buildScripts/distServer.js",
+    "ppostbuild": "babel-node buildScripts/distServer.js",
     "deploy": "surge ./dist"
   },
   "devDependencies": {
