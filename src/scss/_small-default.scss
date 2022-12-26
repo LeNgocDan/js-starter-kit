@@ -72,6 +72,28 @@ div.header {
   }
 }
 
+/* FOOTER */
+div.footer {
+  background-color: #F5F5F4;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  padding: 0 $gutter;
+
+  div a {
+    color: #24292E;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 550;
+    color: $fontColor;
+    text-align: left;
+    // font-style: italic;
+  }
+
+}
+
+
 main {
   display: flex;
   flex-direction: column;
