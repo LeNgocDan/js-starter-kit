@@ -18,7 +18,7 @@ const isMultiScrolling = true;
 // initiate slots
 const initRingIndex = [1, 2, 3];
 
-const initResult = ![7, 2, 8];
+const initResult = [7, 2, 8];
 
 function findSeed(result) {
   return seedMapping.find((s) => s.result === result).seed;
