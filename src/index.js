@@ -1,6 +1,6 @@
 const $ = require('jquery')
-// import { tsParticles } from "tsparticles-engine";
 import { config } from './vendor';
+import { dataUser } from './data'
 
 import seedMapping from './seedMapping';
 import './scss/index.scss';
@@ -8,29 +8,6 @@ import audio from './assets/music.mp3';
 import video from './assets/roll.mp4'
 
 tsParticles.load("tsparticles", config)
-// tsParticles.load("tsparticles", {
-//   particles: {
-//     // background: {
-//     //   color: "#000 !important"
-//     // },
-//     interactivity: {
-//       events: {
-//         onClick: {
-//           enable: true,
-//           mode: "push"
-//         }
-//       }
-//     },
-//     opacity: {
-//       value: { min: 0.5, max: 1 }
-//     },
-//     move: {
-//       enable: true,
-//       speed: { min: 1, max: 3 }
-//     }
-//   }
-// });
-
 
 // scroll type
 const isMultiScrolling = true;
