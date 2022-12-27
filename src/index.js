@@ -1,11 +1,14 @@
 const $ = require('jquery')
 import { config } from './vendor';
-import { dataUser } from './data'
+import { data } from './data'
 
 import seedMapping from './seedMapping';
 import './scss/index.scss';
 import audio from './assets/music.mp3';
 import video from './assets/roll.mp4'
+
+console.log("data user");
+console.log(data);
 
 tsParticles.load("tsparticles", config)
 
