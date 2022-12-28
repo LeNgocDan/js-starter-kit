@@ -48,28 +48,23 @@ div.wrapper {
   box-shadow: 1px 4px 11px #aaa, inset 1px 3px 6px #ccc;
   padding: 1em 0 3em;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  .stage-content {
+  #stage-content {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    // padding-top: 56.25%;
-    // background-image: url("https://thethaominhphu.com/wp-content/uploads/2017/12/Cup-c1.png");
-
-    &::after {
-      content: 'Lê Ngọc Đàn';
-      color: #24292E;
-      font-weight: 700;
-      text-align: center;
-      display: block;
-      text-transform: uppercase;
-      transform: translateY(0.5em);
-      font-size: 6rem;
-    }
+    display: flex;
+    color: #24292E;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 }
 
-.curtain-container {
+#curtain-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -136,7 +131,7 @@ div.wrapper {
   width: 100%;
 }
 
-.curtain-trigger {
+#curtain-trigger {
   visibility: hidden;
   position: absolute;
 

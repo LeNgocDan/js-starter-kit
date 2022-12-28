@@ -2,13 +2,13 @@ const dataJson = [{
   "WinnerCode": "",
   "Name": "Giải Nhất",
   "Description": "Des....1",
-  "MultiScroll": false,
+  "MultiScroll": true,
 },
 {
   "WinnerCode": "",
   "Name": "Giải Nhì",
   "Description": "Des....2",
-  "MultiScroll": false,
+  "MultiScroll": true,
 },
 {
   "WinnerCode": "",

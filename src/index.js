@@ -1,6 +1,6 @@
 const $ = require('jquery')
 import { config } from './vendor';
-import { data } from './data'
+import { data } from './testdata'
 import { awards } from './award'
 
 import seedMapping from './seedMapping';
@@ -32,9 +32,19 @@ function getRandomPersonIndex() {
 const carouselContainerEle = document.getElementById("m-carousel");
 const curtainContainerEle = document.getElementById("curtain-container");
 const awardViewContainerEle = document.getElementById("award-container");
+const curtainTriggerEle = document.getElementById("curtain-trigger");
 const audioEle = document.getElementById('audio');
 const videoEle = document.getElementById('video');
 
+curtainTriggerEle.addEventListener("change", () => {
+  if (!curtainTriggerEle.checked) {
+    if (awards[currentAwardIndex]["WinnerCode"]) {
+      setTimeout(() => {
+        setRerollState();
+      }, 5000);
+    }
+  }
+})
 awardViewContainerEle.style.display = 'none';
 
 audioEle.src = audio;
@@ -65,7 +75,7 @@ $(function () {
   $('#moveRight').on('click', function () {
     var next = current;
     current = current + 1;
-    if (currentAwardIndex == awards.length) {
+    if (currentAwardIndex <= awards.length) {
       currentAwardIndex++;
       isMultiScrolling = awards[currentAwardIndex]["MultiScroll"];
     }
@@ -120,24 +130,42 @@ function createSlots(ring) {
   }
 }
 
-function findSeed(result) {
-  return seedMapping.find((s) => s.result == result).seed;
+function findSeed(oldSeed, result) {
+  for (var i = 0; i < seedMapping.length; i++) {
+    if (seedMapping[i].seed != oldSeed && seedMapping[i].result == result) {
+      return seedMapping[i].seed;
+    }
+  }
 }
 
 function spinAllRing(timer) {
-  var result = "";
+  console.log("all");
   for (var i = 1; i <= 3; i++) {
-    var iSeed = findSeed(initResult[i - 1])
-    $('#ring-' + i)
-      .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
-      .attr('class', 'ring spin-' + iSeed);
-    console.log("result: " + result);
+    var oldSeed = -1;
+    var oldClass = $('#ring-' + i).attr('class');
+    if (oldClass.length > 4) {
+      oldSeed = parseInt(oldClass.slice(10));
+    }
+    var iSeed = findSeed(oldSeed, initResult[i - 1])
+    console.log("Old:", oldSeed);
+    console.log("New:", iSeed);
+    if (!iSeed) {
+      iSeed = 10;
+      $('#ring-' + i)
+        .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + 1 + 's')
+        .attr('class', 'ring spin-' + iSeed);
+    } else {
+      $('#ring-' + i)
+        .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
+        .attr('class', 'ring spin-' + iSeed);
+    }
   }
 }
 
 let currentRingIndex = 0;
 var resultAfterEachSpin = "";
 function spinEachRing(timer, ringIndex) {
+  console.log("each");
   var iSeed = findSeed(initResult[currentRingIndex]);
   $('#ring-' + ringIndex[currentRingIndex])
     .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + ringIndex[currentRingIndex] * 1) + 's')
@@ -148,14 +176,9 @@ function spinEachRing(timer, ringIndex) {
   }
   if (currentRingIndex == 3) {
     console.log(resultAfterEachSpin);
-    resultAfterEachSpin = "";
-    currentRingIndex = 0;
     setTimeout(() => {
-      videoEle.pause();
-      audioEle.pause();
-      curtainContainerEle.style.display = 'block';
-      videoEle.style.display = 'none';
-    }, (timer + ringIndex[currentRingIndex] + 4) * 1000);
+      setRollStopState();
+    }, (timer + ringIndex[currentRingIndex - 1] + 1) * 1000);
   }
 }
 
@@ -167,26 +190,20 @@ $(document).ready(function () {
 
   // hook start button
   $('.go').on('click', function () {
+    var timer = 8;
+    var delay = 1;
+    console.log("current:", currentAwardIndex);
     if (!awards[currentAwardIndex]["WinnerCode"]) {
       const winnerPersons = getWinnerPerson(getRandomPersonIndex());
       awards[currentAwardIndex]["WinnerCode"] = winnerPersons["Code"];
       console.log(winnerPersons);
       initResult = winnerPersons["Code"].split('');
+      setRollingState();
     }
-    var timer = 8;
-    var delay = 1;
-    curtainContainerEle.style.display = 'none';
-    carouselContainerEle.style.display = 'none';
-    awardViewContainerEle.style.display = 'flex';
-    videoEle.play();
-    audioEle.play();
     if (isMultiScrolling) {
       spinAllRing(timer);
       setTimeout(() => {
-        videoEle.pause();
-        audioEle.pause();
-        curtainContainerEle.style.display = 'block';
-        videoEle.style.display = 'none';
+        setRollStopState();
       }, (timer + initRingIndex.length + delay) * 1000);
     } else {
       spinEachRing(timer, initRingIndex);
@@ -242,3 +259,26 @@ $(document).ready(function () {
     slotTriggerMove();
   })
 });
+
+function setRollingState() {
+  curtainContainerEle.style.display = 'none';
+  carouselContainerEle.style.display = 'none';
+  awardViewContainerEle.style.display = 'flex';
+  videoEle.style.display = 'block';
+  videoEle.play();
+  audioEle.play();
+}
+
+function setRollStopState() {
+  videoEle.pause();
+  audioEle.pause();
+  curtainContainerEle.style.display = 'block';
+  videoEle.style.display = 'none';
+}
+
+function setRerollState() {
+  carouselContainerEle.style.display = 'flex';
+  curtainContainerEle.style.display = 'none';
+  awardViewContainerEle.style.display = 'none';
+  videoEle.style.display = 'none';
+}
