@@ -78,9 +78,24 @@
           </div>
         </div>
       </div>
-      <div class="container">
-        <iframe id="gif" src="https://giphy.com/embed/cPZML3OeaKDrW8dgMZ" width="900" height="650"
-          frameBorder="0"></iframe>
+      <div class="container m-carousel-container">
+        <div class="carousel" id="m-carousel">
+          <div class="carousel__nav">
+            <span id="moveLeft" class="carousel__arrow">
+              <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+              </svg>
+            </span>
+            <span id="moveRight" class="carousel__arrow">
+              <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+              </svg>
+            </span>
+          </div>
+          <!-- Insert carousel in js code -->
+        </div>
+      </div>
+      <div class="container" id="award-container">
         <div class="stage" id="curtain-award">
           <div class="stage-content"></div>
           <video id="video" loop>
@@ -106,7 +121,7 @@
     <div class="footer fixed-bottom d-flex flex-row justify-content-around">
       <div>
         <a class="mx-2" target="_blank" href="https://www.facebook.com/nqcdan/">@nqcdan</a>
-        <a target="_blank" href="">@luong-dat</a>
+        <a target="_blank" href="https://www.facebook.com/luongdat2k">@luong-dat</a>
       </div>
       <div>
         <a> <i class="fa-solid fa-mug-hot"></i> Buy me a coffee</a>

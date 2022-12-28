@@ -1,36 +1,105 @@
 const $ = require('jquery')
 import { config } from './vendor';
 import { data } from './data'
+import { awards } from './award'
 
 import seedMapping from './seedMapping';
 import './scss/index.scss';
 import audio from './assets/music.mp3';
 import video from './assets/roll.mp4'
 
-console.log("data user");
 console.log(data);
-
-tsParticles.load("tsparticles", config)
+console.log(awards);
 
 // scroll type
-const isMultiScrolling = true;
+let currentAwardIndex = 0;
+let isMultiScrolling = awards[currentAwardIndex]["MultiScroll"];
+let winnerPersons = [];
 
 // initiate slots
 const initRingIndex = [1, 2, 3];
 
-const initResult = [7, 2, 8];
+let initResult = false;
 
-function findSeed(result) {
-  return seedMapping.find((s) => s.result === result).seed;
+function getWinnerPerson(index) {
+  return data[index];
 }
 
+function getRandomPersonIndex() {
+  return Math.floor(Math.random() * data.length);
+}
 
+const carouselContainerEle = document.getElementById("m-carousel");
+const curtainContainerEle = document.getElementById("curtain-container");
+const awardViewContainerEle = document.getElementById("award-container");
 const audioEle = document.getElementById('audio');
 const videoEle = document.getElementById('video');
-const curtainContainerEle = document.getElementById('curtain-container');
+
+awardViewContainerEle.style.display = 'none';
 
 audioEle.src = audio;
 videoEle.src = video;
+global.tsParticles.load("tsparticles", config)
+
+// Render carousel
+for (const [index, award] of awards.entries()) {
+  const carousel = `<div class="carousel-item">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+              <div class="carousel-item__container" id="award-info-${index - 1}">
+                <h1 class="carousel-item__title">${award["Name"]}</h1>
+                <h3 class="carousel-item__description">Mã số: ${award["Description"]}</h3>
+                <h5 class="carousel-item__description">Tên: Lương Văn Đạt</h5>
+                <h5 class="carousel-item__description">Chi nhánh: S. BEE - Thanh Hóa</h5>
+                <h5 class="carousel-item__description">Phòng ban: Giao Nhận BEETH</h5>
+              </div>
+            </div>
+          </div>`
+  carouselContainerEle.innerHTML += carousel;
+}
+
+$(function () {
+  $('.carousel-item').eq(0).addClass('active');
+  var total = $('.carousel-item').length;
+  var current = 0;
+  $('#moveRight').on('click', function () {
+    var next = current;
+    current = current + 1;
+    if (currentAwardIndex == awards.length) {
+      currentAwardIndex++;
+      isMultiScrolling = awards[currentAwardIndex]["MultiScroll"];
+    }
+    setSlide(next, current);
+  });
+  $('#moveLeft').on('click', function () {
+    var prev = current;
+    current = current - 1;
+    if (currentAwardIndex > 0) {
+      currentAwardIndex--;
+      isMultiScrolling = awards[currentAwardIndex]["MultiScroll"];
+    }
+    setSlide(prev, current);
+  });
+  function setSlide(prev, next) {
+    var slide = current;
+    if (next > total - 1) {
+      slide = 0;
+      current = 0;
+    }
+    if (next < 0) {
+      slide = total - 1;
+      current = total - 1;
+    }
+    $('.carousel-item').eq(prev).removeClass('active');
+    $('.carousel-item').eq(slide).addClass('active');
+    setTimeout(function () {
+
+    }, 800);
+
+    console.log('current ' + current);
+    console.log('prev ' + prev);
+  }
+});
 
 const SLOTS_PER_REEL = 12;
 const REEL_RADIUS = 150;
@@ -51,49 +120,17 @@ function createSlots(ring) {
   }
 }
 
-function getSeed() {
-  // generate random number smaller than 13 then floor it to settle between 0 and 12 inclusive
-  return Math.floor(Math.random() * (SLOTS_PER_REEL));
-}
-
-function getSeed2() {
-  // generate random number smaller than 13 then floor it to settle between 0 and 12 inclusive
-  return Math.floor(Math.random() * (5) + 6);
+function findSeed(result) {
+  return seedMapping.find((s) => s.result == result).seed;
 }
 
 function spinAllRing(timer) {
   var result = "";
   for (var i = 1; i <= 3; i++) {
-    var oldSeed = -1;
-    var oldClass = $('#ring-' + i).attr('class');
-    if (oldClass.length > 4) {
-      oldSeed = parseInt(oldClass.slice(10));
-    }
-    if (!initResult) {
-      var seed = getSeed();
-      if (i == 2) {
-        seed = getSeed2();
-      }
-      while (oldSeed == seed) {
-        if (i == 2) {
-          seed = getSeed2();
-        } else {
-          seed = getSeed();
-        }
-      }
-      console.log("seed: " + seed);
-      result += (seed + 4) % SLOTS_PER_REEL % 10;
-
-      $('#ring-' + i)
-        .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + i * 1) + 's')
-        .attr('class', 'ring spin-' + seed);
-      console.log(result);
-    } else {
-      var iSeed = findSeed(initResult[i - 1])
-      $('#ring-' + i)
-        .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
-        .attr('class', 'ring spin-' + iSeed);
-    }
+    var iSeed = findSeed(initResult[i - 1])
+    $('#ring-' + i)
+      .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
+      .attr('class', 'ring spin-' + iSeed);
     console.log("result: " + result);
   }
 }
@@ -101,34 +138,11 @@ function spinAllRing(timer) {
 let currentRingIndex = 0;
 var resultAfterEachSpin = "";
 function spinEachRing(timer, ringIndex) {
-  if (!initResult) {
-    var oldSeed = -1;
-    var oldClass = $('#ring-' + ringIndex).attr('class');
-    if (oldClass.length > 4) {
-      oldSeed = parseInt(oldClass.slice(10));
-    }
-    var seed = getSeed();
-    if (ringIndex[currentRingIndex] == 2) {
-      seed = getSeed2();
-    }
-    while (oldSeed == seed) {
-      if (ringIndex[currentRingIndex] == 2) {
-        seed = getSeed2();
-      } else {
-        seed = getSeed();
-      }
-    }
-    resultAfterEachSpin += (seed + 4) % SLOTS_PER_REEL % 10;
+  var iSeed = findSeed(initResult[currentRingIndex]);
+  $('#ring-' + ringIndex[currentRingIndex])
+    .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + ringIndex[currentRingIndex] * 1) + 's')
+    .attr('class', 'ring spin-' + iSeed);
 
-    $('#ring-' + ringIndex[currentRingIndex])
-      .css('animation', 'back-spin 1s, spin-' + seed + ' ' + (timer + ringIndex[currentRingIndex] * 1) + 's')
-      .attr('class', 'ring spin-' + seed);
-  } else {
-    var iSeed = findSeed(initResult[currentRingIndex]);
-    $('#ring-' + ringIndex[currentRingIndex])
-      .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + ringIndex[currentRingIndex] * 1) + 's')
-      .attr('class', 'ring spin-' + iSeed);
-  }
   if (currentRingIndex < ringIndex.length) {
     currentRingIndex++;
   }
@@ -136,6 +150,12 @@ function spinEachRing(timer, ringIndex) {
     console.log(resultAfterEachSpin);
     resultAfterEachSpin = "";
     currentRingIndex = 0;
+    setTimeout(() => {
+      videoEle.pause();
+      audioEle.pause();
+      curtainContainerEle.style.display = 'block';
+      videoEle.style.display = 'none';
+    }, (timer + ringIndex[currentRingIndex] + 4) * 1000);
   }
 }
 
@@ -147,9 +167,17 @@ $(document).ready(function () {
 
   // hook start button
   $('.go').on('click', function () {
-    var timer = 20;
+    if (!awards[currentAwardIndex]["WinnerCode"]) {
+      const winnerPersons = getWinnerPerson(getRandomPersonIndex());
+      awards[currentAwardIndex]["WinnerCode"] = winnerPersons["Code"];
+      console.log(winnerPersons);
+      initResult = winnerPersons["Code"].split('');
+    }
+    var timer = 8;
     var delay = 1;
     curtainContainerEle.style.display = 'none';
+    carouselContainerEle.style.display = 'none';
+    awardViewContainerEle.style.display = 'flex';
     videoEle.play();
     audioEle.play();
     if (isMultiScrolling) {
@@ -214,4 +242,3 @@ $(document).ready(function () {
     slotTriggerMove();
   })
 });
-
