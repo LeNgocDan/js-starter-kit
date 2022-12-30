@@ -1068,4 +1068,4 @@ const dataJson = [{
 }
 ]
 
-export const data = JSON.parse(JSON.stringify(dataJson));
+export const participants = JSON.parse(JSON.stringify(dataJson));

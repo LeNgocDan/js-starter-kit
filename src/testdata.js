@@ -12,4 +12,12 @@ const dataJson = [{
 },
 ]
 
-export const data = JSON.parse(JSON.stringify(dataJson));
+export const participants = JSON.parse(JSON.stringify(dataJson));
+
+export const PERSON_PARTICIPANT_MAP = new Map();
+participants.forEach(function (participant) {
+  PERSON_PARTICIPANT_MAP.set(participant.Code, participant);
+})
+
+
+
