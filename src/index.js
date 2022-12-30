@@ -36,6 +36,10 @@ const curtainTriggerEle = document.getElementById("curtain-trigger");
 const audioEle = document.getElementById('audio');
 const videoEle = document.getElementById('video');
 
+const winnerName = document.getElementById("winner-name");
+const winnerBranch = document.getElementById("winner-branch");
+const winnerDept = document.getElementById("winner-dept");
+
 curtainTriggerEle.addEventListener("change", () => {
   if (!curtainTriggerEle.checked) {
     if (awards[currentAwardIndex]["WinnerCode"]) {
@@ -198,6 +202,9 @@ $(document).ready(function () {
 
     console.log("Nguoi da trung giai");
     console.log(PERSON_WINNER_MAP);
+    winnerName.innerHTML = `Tên: ${winnerPerson.Name}`
+    winnerBranch.innerHTML = `Chi nhánh: ${winnerPerson.Branch}`
+    winnerDept.innerHTML = `Phòng ban: ${winnerPerson.Dept}`
 
     setRollingState();
     if (isMultiScrolling) {
