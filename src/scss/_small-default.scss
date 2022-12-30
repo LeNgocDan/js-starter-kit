@@ -22,6 +22,7 @@ body {
 }
 
 #wrapper {
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -36,6 +37,7 @@ body {
 div.header {
   background-color: #e28743;
   display: flex;
+  flex-grow: 0;
   height: 4rem;
   padding: 0 $gutter;
 
@@ -79,6 +81,7 @@ div.footer {
   width: 100%;
   display: flex;
   align-items: center;
+  flex-grow: 0;
   height: 3rem;
   padding: 0 $gutter;
 
@@ -94,12 +97,26 @@ div.footer {
 
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
 
-main {
+.main {
   display: flex;
   flex-direction: column;
-  padding: 2rem $gutter;
+  align-items: center;
+  flex-grow: 1;
+  // padding: 2rem $gutter;
   // background-color: #24292E;
+
+  .random-number {
+    height: 8rem;
+    flex-grow: 0;
+    margin: 1rem 0;
+  }
 
   h2 {
     color: #24292E;

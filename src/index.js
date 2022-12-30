@@ -58,10 +58,6 @@ for (const [index, award] of awards.entries()) {
             <div class="carousel-item__info">
               <div class="carousel-item__container" id="award-info-${index - 1}">
                 <h1 class="carousel-item__title">${award["Name"]}</h1>
-                <h3 class="carousel-item__description">Mã số: ${award["Description"]}</h3>
-                <h5 class="carousel-item__description">Tên: Lương Văn Đạt</h5>
-                <h5 class="carousel-item__description">Chi nhánh: S. BEE - Thanh Hóa</h5>
-                <h5 class="carousel-item__description">Phòng ban: Giao Nhận BEETH</h5>
               </div>
             </div>
           </div>`
