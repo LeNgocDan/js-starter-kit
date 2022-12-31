@@ -1,3 +1,12 @@
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
 #stage {
   margin: 0 auto;
   width: 600px;
@@ -66,19 +75,26 @@
 }
 
 .slot p {
-  font-size: 75px;
+  font-size: 3.5rem;
   font-weight: bold;
-  line-height: 70px;
+  // line-height: 70px;
   margin: 0;
   text-align: center;
 }
 
-// label {
-//   cursor: pointer;
-//   display: inline-block;
-//   width: 45%;
-//   text-align: center;
-// }
+.go {
+  display: block;
+  margin: 0 auto 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+label {
+  cursor: pointer;
+  display: inline-block;
+  width: 45%;
+  text-align: center;
+}
 
 .tilted {
   transform: rotateY(45deg);

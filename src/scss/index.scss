@@ -17,13 +17,56 @@
 
 @import "~bootstrap/scss/bootstrap";
 
-@import 'carousel';
-
-
-
-@media (max-width: 900px) {
-
+@media (min-width: 900px) and (max-width: 1800px) {
   #video {
     display: none;
+  }
+
+  div.header {
+    height: 3.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .curtain__wrapper #gif {
+    top: 0;
+  }
+
+  .curtain__content {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .random-number {
+    width: 100% !important;
+
+    .base-frame {
+      width: calc(calc(70vw * .7) - 40px) !important;
+
+      .base-frame-top {
+        width: calc(calc(70vw * .7) - 40px) !important;
+      }
+
+      .base-frame-bottom {
+        width: calc(calc(70vw * .7) - 40px) !important;
+      }
+
+      .ring {
+        width: 120px;
+      }
+
+
+    }
+  }
+}
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+
+  div.header {
+    height: 4rem;
   }
 }

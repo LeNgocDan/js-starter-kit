@@ -1,5 +1,5 @@
 const $ = require('jquery')
-import { participants } from './data'
+import { participants } from './testdata'
 import seedMapping from './seedMapping';
 import './scss/index.scss';
 import * as setup from './uiSetup';
@@ -28,20 +28,12 @@ function createSlots(ring) {
 }
 
 function findSeed(oldSeed, result) {
-  let seedMappingCopy = seedMapping;
-  for (var i = 0; i < seedMappingCopy.length; i++) {
-
-    if (seedMappingCopy[i].seed != oldSeed && seedMappingCopy[i].result == result) {
-      return seedMappingCopy[i].seed;
+  for (var i = 0; i < seedMapping.length; i++) {
+    if (seedMapping[i].seed != oldSeed && seedMapping[i].result == result) {
+      return seedMapping[i].seed;
     }
   }
 }
-
-function findSeed2() {
-  // generate random number smaller than 13 then floor it to settle between 0 and 12 inclusive
-  return Math.floor(Math.random() * (5) + 6);
-}
-
 
 function getWinnerPersonCode() {
   console.log(PARTICIPANT_SIZE);
@@ -57,17 +49,15 @@ function getWinnerPersonCode() {
 
 function spinMultiRing(timer, result) {
   console.log("ring all");
+  console.log("RESULT");
+  console.log(result);
   for (var i = 1; i <= 3; i++) {
     var oldSeed = -1;
     var oldClass = $('#ring-' + i).attr('class');
     if (oldClass.length > 4) {
       oldSeed = parseInt(oldClass.slice(10));
     }
-    oldSeed = -1;
     var iSeed = findSeed(oldSeed, result[i - 1])
-    if (i == 1) {
-      iSeed = findSeed2();
-    }
     if (!iSeed) {
       iSeed = 10;
       $('#ring-' + i)
@@ -98,8 +88,6 @@ function spinEachRing(timer, result, ringIndex, currRingIdx) {
 
 function ensureNextMultiSpin() {
   setup.closingCurtain();
-  setup.hideCurtain();
-  setup.showVideo();
   console.log("Người đã trúng giải");
   console.log(PERSON_WINNER_MAP);
   if (PARTICIPANT_SIZE === 0) {
@@ -131,22 +119,39 @@ $(document).ready(function () {
     var delay = 0.5;
 
     if (setup.isMultiScrolling()) {
+      let closingCurtain = setup.isCurtainClosing();
       ensureNextMultiSpin();
-      let RESULT = getWinnerPersonCode();
-      setup.playVideo();
-      setup.disabledBtnTrigger();
-      spinMultiRing(TIMER, RESULT);
 
+      if (closingCurtain) {
+        setTimeout(function () {
+          setup.playAudio();
+          setup.disabledBtnTrigger();
+          let RESULT = getWinnerPersonCode();
+          spinMultiRing(TIMER, RESULT);
+        }, 1000)
+      } else {
+        setup.playAudio();
+        setup.disabledBtnTrigger();
+        let RESULT = getWinnerPersonCode();
+        spinMultiRing(TIMER, RESULT);
+      }
       setTimeout(() => {
-        setup.updateStateWhenMultiStop();
+        setup.stopAudio();
       }, (TIMER + RING_SLOTS.length + delay) * 1000);
-
     } else {
       setup.disabledBtnTrigger();
       if (currRingIdx == -1) {
+        let closingCurtain = setup.isCurtainClosing();
         ensureNextMultiSpin();
-        RESULT = getWinnerPersonCode();
-        setup.updateStateWhenEachStart();
+        if (closingCurtain) {
+          setTimeout(() => {
+            setup.playAudio();
+            RESULT = getWinnerPersonCode();
+          }, 1000)
+        } else {
+          setup.playAudio();
+          RESULT = getWinnerPersonCode();
+        }
       }
       ++currRingIdx;
       spinEachRing(TIMER, RESULT, RING_SLOTS, currRingIdx);
@@ -157,7 +162,7 @@ $(document).ready(function () {
       if (currRingIdx == 2) {
         setTimeout(() => {
           setup.enabledBtnTrigger();
-          setup.updateStateWhenMultiStop();
+          setup.stopAudio();
         }, (TIMER + 4) * 1000);
         currRingIdx = -1;
       }
@@ -199,7 +204,7 @@ $('#curtain-trigger').change(function () {
     console.log('Đóng rèmmmmm');
     setup.disabledBtnTrigger();
     setTimeout(() => {
-      setup.prepareToRolling();
+      setup.enabledBtnTrigger();
     }, 2000);
   } else {
     console.log('Mở rèmmmmm');

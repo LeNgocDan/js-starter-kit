@@ -20,6 +20,7 @@
       </div>
     </div>
     <div class="main">
+      <!-- -------------------Award ----------------  -->
       <div class="d-flex w-100 justify-content-between my-2">
         <button class="btn-arrow btn-arrow-left" id="btn-arrow-left">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -40,6 +41,8 @@
         <div class="curtain" id="curtain">
           <div class="curtain__wrapper">
             <input id="curtain-trigger" type="checkbox" checked>
+            <iframe id="gif" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no"
+              src=""></iframe>
 
             <div class="curtain__panel curtain__panel--left">
               <div class="fs-3">Click to reveal&nbsp;</div>
@@ -47,9 +50,11 @@
 
             <div class="curtain__content">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/trophy.svg">
-              <div class="fs-1 my-1 text-warning" id="winner-name">Tên: </div>
-              <div class="fs-3 text-info" id="winner-branch">Chi nhánh: </div>
-              <div class="fs-4 text-info" id="winner-dept">Phòng ban: </div>
+              <div class="curtain-text">
+                <div class="fs-1 my-1 text-warning" id="winner-name">Tên: </div>
+                <div class="fs-3 text-info" id="winner-branch">Chi nhánh: </div>
+                <div class="fs-4 text-info" id="winner-dept">Phòng ban: </div>
+              </div>
             </div>
 
             <div class="curtain__panel curtain__panel--right">
@@ -58,11 +63,9 @@
 
           </div> <!-- curtain__wrapper -->
         </div> <!-- curtain -->
-
-        <video id="video" loop>
+        <!-- <video id="video" loop>
           <source src="" type="video/mp4" />
-        </video>
-
+        </video> -->
       </div>
 
       <!-- <canvas id="canvas"> </canvas> -->
@@ -73,21 +76,21 @@
       </audio>
 
       <!-- Random Number Machine -->
-      <div class="random-number">
-        <div class="base-machine">
-          <div class="base-frame">
-            <div id="stage" class="perspective-on stage-m">
-              <div id="rotate">
-                <div id="ring-1" class="ring"></div>
-                <div id="ring-2" class="ring"></div>
-                <div id="ring-3" class="ring"></div>
-              </div>
-            </div>
-            <div class="base-frame-top"></div>
-            <div class="base-frame-bottom"></div>
-          </div>
-        </div>
 
+      <div class="random-number">
+        <!-- <div class="base-machine"> -->
+        <div class="base-frame">
+          <div id="stage" class="perspective-on stage-m">
+            <div id="rotate">
+              <div id="ring-1" class="ring"></div>
+              <div id="ring-2" class="ring"></div>
+              <div id="ring-3" class="ring"></div>
+            </div>
+          </div>
+          <div class="base-frame-top"></div>
+          <div class="base-frame-bottom"></div>
+        </div>
+        <!-- </div> -->
         <button id="slot-trigger">
           <svg class="mx-0" id="trigger" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             width="35" height="143.6" viewBox="0 0 35 143.6">
@@ -140,6 +143,7 @@
     </div>
   </div>
 
+  <!-- <script type="text/javascript" async src="https://tenor.com/embed.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.7.1/tsparticles.bundle.min.js"></script>
 </body>
 

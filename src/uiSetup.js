@@ -1,25 +1,26 @@
 import audio from './assets/music.mp3';
-import video from './assets/roll.mp4'
+import gif from './assets/peterparker.gif'
 import { config } from './vendor';
 import { awards } from './award'
 
 const curtainEle = document.getElementById("curtain");
 const curtainCheckedEle = document.getElementById("curtain-trigger");
-const videoEle = document.getElementById('video');
+// const videoEle = document.getElementById('video');
 const btnTrigger = document.getElementById("slot-trigger");
 const audioEle = document.getElementById('audio');
+const gifEle = document.getElementById('gif');
 
 const nameAwardEle = document.getElementById('award-name');
 
 audioEle.src = audio;
-videoEle.src = video;
-showVideo();
-hideCurtain();
+// videoEle.src = video;
+gifEle.src = gif;
+
+// showGif();
 // show ten giai thuong
 let currAwardIdx = 0;
 showAward();
-
-
+hideGif();
 
 export function showWinnerPerson(winner) {
   if (!winner) return;
@@ -71,23 +72,22 @@ export function isMultiScrolling() {
   return award['MultiScroll'];
 }
 
-export function showVideo() {
-  videoEle.style.display = 'flex';
-  hideCurtain();
+export function showGif() {
+  gifEle.style.display = 'flex';
 }
 
-export function playVideo() {
-  videoEle.play();
+export function hideGif() {
+  gifEle.style.display = 'none';
+}
+
+export function playAudio() {
+  showGif();
   audioEle.play();
 }
 
-export function hideVideo() {
-  videoEle.style.display = 'none';
-  showCurtain();
-}
 
-export function stopVideo() {
-  videoEle.pause();
+export function stopAudio() {
+  hideGif();
   audioEle.pause();
 }
 
@@ -108,20 +108,16 @@ export function enabledBtnTrigger() {
 }
 
 export function updateStateWhenMultiStart() {
-  showVideo();
+  showGif();
   enabledBtnTrigger();
 }
 
 export function updateStateWhenMultiStop() {
-  stopVideo();
-  hideVideo();
-  showCurtain();
+  stopAudio();
 }
 
 export function updateStateWhenEachStart() {
-  showVideo();
-  hideCurtain();
-  videoEle.play();
+  showGif();
   audioEle.play();
 }
 
@@ -131,7 +127,6 @@ export function updateStateWhenEachRingStop() {
 
 export function prepareToRolling() {
   enabledBtnTrigger();
-  showVideo();
 }
 
 export function isCurtainClosing() {
