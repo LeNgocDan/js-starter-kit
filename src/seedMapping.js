@@ -33,10 +33,18 @@ export default [
   },
   {
     seed: 8,
-    result: 2,
+    result: 0,
   },
   {
     seed: 9,
+    result: 1,
+  },
+  {
+    seed: 10,
+    result: 2,
+  },
+  {
+    seed: 11,
     result: 3,
-  }
+  },
 ];

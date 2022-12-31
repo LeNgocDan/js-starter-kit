@@ -116,6 +116,11 @@ div.footer {
   .random-number {
     flex-grow: 0;
     margin: 1rem 0;
+
+    #slot-trigger {
+      background: none;
+      border: none;
+    }
   }
 
   h2 {

@@ -31,6 +31,9 @@ const curtainContainerEle = document.getElementById("curtain-container");
 const awardViewContainerEle = document.getElementById("award-container");
 const curtainTriggerEle = document.getElementById("curtain-trigger");
 const curtainAwardEle = document.getElementById("curtain-award");
+
+const btnTrigger = document.getElementById("slot-trigger");
+
 const audioEle = document.getElementById('audio');
 const videoEle = document.getElementById('video');
 
@@ -38,14 +41,7 @@ const winnerName = document.getElementById("winner-name");
 const winnerBranch = document.getElementById("winner-branch");
 const winnerDept = document.getElementById("winner-dept");
 
-$('#curtain-trigger').change(function () {
-  console.log(curtainTriggerEle.checked);
-  if (!curtainTriggerEle.checked) {
-    setTimeout(() => {
-      setPrepareStateToRolling();
-    }, 3000);
-  }
-});
+
 
 awardViewContainerEle.style.display = 'none';
 
@@ -180,9 +176,11 @@ $(document).ready(function () {
 
   // hook start button
   $('#slot-trigger').on('click', function () {
+    console.log("Người đã trúng giải");
+    console.log(PERSON_WINNER_MAP);
 
+    console.log(curtainTriggerEle);
     if (curtainTriggerEle && curtainTriggerEle.checked) {
-      console.log(curtainTriggerEle.checked);
       curtainTriggerEle.checked = false;
     }
 
@@ -203,10 +201,16 @@ $(document).ready(function () {
     winnerBranch.innerHTML = `Chi nhánh: ${winnerPerson.Branch}`
     winnerDept.innerHTML = `Phòng ban: ${winnerPerson.Dept}`
     setRollingState();
+
+    btnTrigger.disabled = true;
+
     if (isMultiScrolling) {
       spinAllRing(timer);
       setTimeout(() => {
         setRollStopState();
+        if (curtainTriggerEle && !curtainTriggerEle.checked) {
+          btnTrigger.disabled = true;
+        }
       }, (timer + initRingIndex.length + delay) * 1000);
     } else {
       spinEachRing(timer, initRingIndex);
@@ -244,7 +248,6 @@ $(document).ready(function () {
 });
 
 // // // fake call api for testing
-
 $(document).ready(function () {
   var btnSpin = $('#slot-trigger'),
     head = $('#head'),
@@ -261,6 +264,19 @@ $(document).ready(function () {
   btnSpin.click(function () {
     slotTriggerMove();
   })
+});
+
+$('#curtain-trigger').change(function () {
+  if (!curtainTriggerEle.checked) {
+    console.log('Đóng rèmmmmm');
+    btnTrigger.disabled = true;
+    setTimeout(() => {
+      setPrepareStateToRolling();
+    }, 2000);
+  } else {
+    console.log('Mở rèmmmmm');
+    btnTrigger.disabled = false;
+  }
 });
 
 function setRollingState() {
@@ -284,13 +300,12 @@ function setRollStopState() {
 }
 
 function setPrepareStateToRolling() {
-  // carouselContainerEle.style.display = 'flex'
+  btnTrigger.disabled = false;
   carouselEle.style.display = 'flex';
   curtainContainerEle.style.display = 'none';
   awardViewContainerEle.style.display = 'none';
   videoEle.style.display = 'none';
 }
-
 
 // -------------------for UI only
 global.tsParticles.load("tsparticles", config)
