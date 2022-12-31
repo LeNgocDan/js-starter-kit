@@ -103,9 +103,6 @@ $(function () {
     setTimeout(function () {
 
     }, 800);
-
-    console.log('current ' + current);
-    console.log('prev ' + prev);
   }
 });
 
@@ -129,9 +126,6 @@ function createSlots(ring) {
 
 function findSeed(oldSeed, result) {
   let seedMappingCopy = seedMapping;
-  console.log("Old Seed " + oldSeed);
-  console.log("Result " + result);
-  console.log(seedMapping);
   for (var i = 0; i < seedMappingCopy.length; i++) {
     if (seedMappingCopy[i].seed != oldSeed && seedMappingCopy[i].result == result) {
       return seedMappingCopy[i].seed;
@@ -147,9 +141,6 @@ function spinAllRing(timer) {
     if (oldClass.length > 4) {
       oldSeed = parseInt(oldClass.slice(10));
     }
-    console.log("Old Class");
-    console.log(oldClass);
-
     var iSeed = findSeed(oldSeed, initResult[i - 1])
     if (!iSeed) {
       iSeed = 10;
