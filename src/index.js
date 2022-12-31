@@ -8,9 +8,6 @@ import './scss/index.scss';
 import audio from './assets/music.mp3';
 import video from './assets/roll.mp4'
 
-console.log(participants);
-console.log(awards);
-
 let participantsCopy = participants;
 let PARTICIPANT_SIZE = participants.length;
 const PERSON_WINNER_MAP = new Map();
@@ -33,6 +30,7 @@ const carouselEle = document.getElementById("m-carousel");
 const curtainContainerEle = document.getElementById("curtain-container");
 const awardViewContainerEle = document.getElementById("award-container");
 const curtainTriggerEle = document.getElementById("curtain-trigger");
+const curtainAwardEle = document.getElementById("curtain-award");
 const audioEle = document.getElementById('audio');
 const videoEle = document.getElementById('video');
 
@@ -40,17 +38,17 @@ const winnerName = document.getElementById("winner-name");
 const winnerBranch = document.getElementById("winner-branch");
 const winnerDept = document.getElementById("winner-dept");
 
-curtainTriggerEle.addEventListener("change", () => {
+$('#curtain-trigger').change(function () {
+  console.log(curtainTriggerEle.checked);
   if (!curtainTriggerEle.checked) {
-    if (awards[currentAwardIndex]["WinnerCode"]) {
-      setTimeout(() => {
-        setPrepareStateToRolling();
-      }, 5000);
-    }
+    setTimeout(() => {
+      setPrepareStateToRolling();
+    }, 3000);
   }
-})
+});
 
 awardViewContainerEle.style.display = 'none';
+
 audioEle.src = audio;
 videoEle.src = video;
 
@@ -89,6 +87,7 @@ $(function () {
     }
     setSlide(prev, current);
   });
+
   function setSlide(prev, next) {
     var slide = current;
     if (next > total - 1) {
@@ -129,9 +128,13 @@ function createSlots(ring) {
 }
 
 function findSeed(oldSeed, result) {
-  for (var i = 0; i < seedMapping.length; i++) {
-    if (seedMapping[i].seed != oldSeed && seedMapping[i].result == result) {
-      return seedMapping[i].seed;
+  let seedMappingCopy = seedMapping;
+  console.log("Old Seed " + oldSeed);
+  console.log("Result " + result);
+  console.log(seedMapping);
+  for (var i = 0; i < seedMappingCopy.length; i++) {
+    if (seedMappingCopy[i].seed != oldSeed && seedMappingCopy[i].result == result) {
+      return seedMappingCopy[i].seed;
     }
   }
 }
@@ -144,6 +147,8 @@ function spinAllRing(timer) {
     if (oldClass.length > 4) {
       oldSeed = parseInt(oldClass.slice(10));
     }
+    console.log("Old Class");
+    console.log(oldClass);
 
     var iSeed = findSeed(oldSeed, initResult[i - 1])
     if (!iSeed) {
@@ -183,7 +188,13 @@ $(document).ready(function () {
   }
 
   // hook start button
-  $('.go').on('click', function () {
+  $('#slot-trigger').on('click', function () {
+
+    if (curtainTriggerEle && curtainTriggerEle.checked) {
+      console.log(curtainTriggerEle.checked);
+      curtainTriggerEle.checked = false;
+    }
+
     var timer = 0.5;
     var delay = 0.5;
 
@@ -194,18 +205,12 @@ $(document).ready(function () {
     let randomPersonIdx = getRandomPersonIndex();
     const winnerPersons = participantsCopy.splice(randomPersonIdx, 1);
     let winnerPerson = winnerPersons[0];
-    console.log('nguoi trung giai hien tai');
-    console.log(winnerPerson);
     PERSON_WINNER_MAP.set(winnerPerson['Code'], winnerPerson);
     PARTICIPANT_SIZE--;
     initResult = winnerPerson["Code"].split('');
-
-    console.log("Nguoi da trung giai");
-    console.log(PERSON_WINNER_MAP);
-    winnerName.innerHTML = `Tên: ${winnerPerson.Name}`
+    winnerName.innerHTML = `${winnerPerson.Name}`
     winnerBranch.innerHTML = `Chi nhánh: ${winnerPerson.Branch}`
     winnerDept.innerHTML = `Phòng ban: ${winnerPerson.Dept}`
-
     setRollingState();
     if (isMultiScrolling) {
       spinAllRing(timer);
@@ -268,26 +273,26 @@ $(document).ready(function () {
 });
 
 function setRollingState() {
-  console.log('call rolling state');
   // carouselContainerEle.style.display = 'none'
   curtainContainerEle.style.display = 'none';
   carouselEle.style.display = 'none';
   awardViewContainerEle.style.display = 'flex';
   videoEle.style.display = 'block';
+  curtainAwardEle.style.display = 'none';
   videoEle.play();
   audioEle.play();
 }
 
 function setRollStopState() {
-  console.log('call roll stop state');
   videoEle.pause();
   audioEle.pause();
+  awardViewContainerEle.style.display = 'flex';
   curtainContainerEle.style.display = 'block';
+  curtainAwardEle.style.display = 'flex';
   videoEle.style.display = 'none';
 }
 
 function setPrepareStateToRolling() {
-  console.log('call reset state to start next rolling');
   // carouselContainerEle.style.display = 'flex'
   carouselEle.style.display = 'flex';
   curtainContainerEle.style.display = 'none';

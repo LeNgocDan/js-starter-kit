@@ -21,8 +21,58 @@
     </div>
 
     <div class="main">
+
+      <!-- Insert carousel in js code -->
+
+      <div class="m-carousel-container" id="m-carousel-container">
+        <div class="carousel" id="m-carousel">
+
+          <div class="carousel__nav">
+            <span id="moveLeft" class="carousel__arrow">
+              <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+              </svg>
+            </span>
+            <span id="moveRight" class="carousel__arrow">
+              <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container" id="award-container">
+        <div class="container stage" id="curtain-award">
+          <div id="stage-content">
+            <h2 class="fs-1" id="winner-name">Tên: </h2>
+            <h5 id="winner-branch">Chi nhánh: </h5>
+            <h5 id="winner-dept">Phòng ban: </h5>
+          </div>
+          <label id="curtain-container">
+            <div class="curtain-panel">
+              <input type="checkbox" id="curtain-trigger" />
+              <div class="left-curtain curtain" data-title="Bấm để xem người may mắn..."></div>
+              <div class="right-curtain curtain" data-title="Bấm để xem người may mắn..."></div>
+            </div>
+          </label>
+        </div>
+        <video id="video" loop>
+          <source src="" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- <canvas id="canvas"> </canvas> -->
+      <div id="tsparticles"></div>
+
+      <audio preload="auto" id="audio">
+        <source src="" type="audio/mpeg" />
+      </audio>
+
+
       <div class="random-number">
-        <div class=" m-slot">
+        <div class="d-flex">
           <div class="base-machine">
             <div class="base-frame">
               <div id="stage" class="perspective-on stage-m">
@@ -35,11 +85,9 @@
               <div class="base-frame-top"></div>
               <div class="base-frame-bottom"></div>
             </div>
-            <div class="trapezoid">
-              <div class="edge"></div>
-            </div>
           </div>
-          <div id="slot-trigger" class="go">
+
+          <div id="slot-trigger">
             <svg id="trigger" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35"
               height="143.6" viewBox="0 0 35 143.6">
               <defs>
@@ -79,53 +127,6 @@
         </div>
       </div>
 
-      <!-- Insert carousel in js code -->
-
-      <div class="m-carousel-container" id="m-carousel-container">
-        <div class="carousel" id="m-carousel">
-
-          <div class="carousel__nav">
-            <span id="moveLeft" class="carousel__arrow">
-              <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
-              </svg>
-            </span>
-            <span id="moveRight" class="carousel__arrow">
-              <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="container" id="award-container">
-        <div class="stage" id="curtain-award">
-          <div id="stage-content">
-            <h2 id="winner-name">Tên: </h2>
-            <h5 id="winner-branch">Chi nhánh: </h5>
-            <h5 id="winner-dept">Phòng ban: </h5>
-          </div>
-          <video id="video" loop>
-            <source src="" type="video/mp4" />
-          </video>
-          <label id="curtain-container">
-            <div class="curtain-panel">
-              <input type="checkbox" id="curtain-trigger" />
-              <div class="left-curtain curtain" data-title="Bấm để xem người may mắn..."></div>
-              <div class="right-curtain curtain" data-title="Bấm để xem người may mắn..."></div>
-            </div>
-          </label>
-        </div>
-      </div>
-
-      <!-- <canvas id="canvas"> </canvas> -->
-      <div id="tsparticles"></div>
-
-      <audio preload="auto" id="audio">
-        <source src="" type="audio/mpeg" />
-      </audio>
     </div>
 
     <!-- -----------------------FOOTER ------------ -->
