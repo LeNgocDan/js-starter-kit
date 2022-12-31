@@ -540,3 +540,59 @@ export const config = {
   "themes": [],
   "zLayers": 100
 }
+
+/*
+// Render carousel
+for (const [index, award] of awards.entries()) {
+  const carousel = `<div class="carousel-item">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+              <div class="carousel-item__container" id="award-info-${index - 1}">
+                <h1 class="carousel-item__title">${award["Name"]}</h1>
+              </div>
+            </div>
+          </div>`
+  carouselEle.innerHTML += carousel;
+}
+
+$(function () {
+  $('.carousel-item').eq(0).addClass('active');
+  var total = $('.carousel-item').length;
+  var current = 0;
+  $('#moveRight').on('click', function () {
+    var next = current;
+    current = current + 1;
+    if (currentAwardIndex <= awards.length) {
+      currentAwardIndex++;
+      isMultiScrolling = awards[currentAwardIndex]["MultiScroll"];
+    }
+    setSlide(next, current);
+  });
+  $('#moveLeft').on('click', function () {
+    var prev = current;
+    current = current - 1;
+    if (currentAwardIndex > 0) {
+      currentAwardIndex--;
+      isMultiScrolling = awards[currentAwardIndex]["MultiScroll"];
+    }
+    setSlide(prev, current);
+  });
+
+  function setSlide(prev, next) {
+    var slide = current;
+    if (next > total - 1) {
+      slide = 0;
+      current = 0;
+    }
+    if (next < 0) {
+      slide = total - 1;
+      current = total - 1;
+    }
+    $('.carousel-item').eq(prev).removeClass('active');
+    $('.carousel-item').eq(slide).addClass('active');
+    setTimeout(function () {
+
+    }, 800);
+  }
+});
+*/
