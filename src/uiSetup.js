@@ -19,6 +19,8 @@ hideCurtain();
 let currAwardIdx = 0;
 showAward();
 
+
+
 export function showWinnerPerson(winner) {
   if (!winner) return;
   const winnerName = document.getElementById("winner-name");

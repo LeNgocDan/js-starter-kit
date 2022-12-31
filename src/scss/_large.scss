@@ -6,14 +6,6 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.odometer {
-  font-size: calc(2rem + 5vw);
-}
-
-.title {
-  letter-spacing: 1.5px;
-  line-height: 1.25;
-}
 
 div.wrapper {
   width: 100%;
@@ -28,4 +20,8 @@ div.wrapper {
 .limit {
   max-width: 992px;
   margin: auto;
+}
+
+#video {
+  border: 3px solid red;
 }

@@ -25,6 +25,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 /* GRID */
@@ -97,13 +98,23 @@ div.footer {
   }
 }
 
+.odometer {
+  font-size: calc(2rem + 5vw);
+}
+
+.title {
+  letter-spacing: 1.5px;
+  line-height: 1.25;
+}
+
 .container {
+  width: 100% !important;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
   padding: 0;
-  margin: none;
+  margin: 0;
 }
 
 .main {
@@ -114,6 +125,7 @@ div.footer {
   margin: 1rem 0;
 
   .random-number {
+    display: flex;
     flex-grow: 0;
     margin: 1rem 0;
 
@@ -161,7 +173,6 @@ div.footer {
 #video {
   display: flex;
   width: 100%;
-  border: 3px solid red;
 }
 
 

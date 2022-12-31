@@ -5,15 +5,25 @@
 
 @import 'small-default';
 
+@media screen and (min-width: 1140px) {
+  @import 'large';
+}
+
+// @import 'large';
+
 @import 'machine';
 
 @import 'ring';
 
-@import 'large';
-
 @import "~bootstrap/scss/bootstrap";
 
 @import 'carousel';
-// @media screen and (min-width: 1140px) {
-// }
 
+
+
+@media (max-width: 900px) {
+
+  #video {
+    display: none;
+  }
+}

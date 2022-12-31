@@ -1,5 +1,5 @@
 const $ = require('jquery')
-import { participants } from './testdata'
+import { participants } from './data'
 import seedMapping from './seedMapping';
 import './scss/index.scss';
 import * as setup from './uiSetup';
@@ -30,10 +30,16 @@ function createSlots(ring) {
 function findSeed(oldSeed, result) {
   let seedMappingCopy = seedMapping;
   for (var i = 0; i < seedMappingCopy.length; i++) {
+
     if (seedMappingCopy[i].seed != oldSeed && seedMappingCopy[i].result == result) {
       return seedMappingCopy[i].seed;
     }
   }
+}
+
+function findSeed2() {
+  // generate random number smaller than 13 then floor it to settle between 0 and 12 inclusive
+  return Math.floor(Math.random() * (5) + 6);
 }
 
 
@@ -58,6 +64,9 @@ function spinMultiRing(timer, result) {
       oldSeed = parseInt(oldClass.slice(10));
     }
     var iSeed = findSeed(oldSeed, result[i - 1])
+    if (i == 1) {
+      iSeed = findSeed2();
+    }
     if (!iSeed) {
       iSeed = 10;
       $('#ring-' + i)
