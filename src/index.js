@@ -63,6 +63,7 @@ function spinMultiRing(timer, result) {
     if (oldClass.length > 4) {
       oldSeed = parseInt(oldClass.slice(10));
     }
+    oldSeed = -1;
     var iSeed = findSeed(oldSeed, result[i - 1])
     if (i == 1) {
       iSeed = findSeed2();
