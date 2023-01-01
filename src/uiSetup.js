@@ -32,6 +32,15 @@ export function showWinnerPerson(winner) {
   winnerDept.innerHTML = `Phòng ban: ${winner.Dept}`
 }
 
+export function cleanWinnerPerson() {
+  const winnerName = document.getElementById("winner-name");
+  const winnerBranch = document.getElementById("winner-branch");
+  const winnerDept = document.getElementById("winner-dept");
+  winnerName.innerHTML = `Tên`
+  winnerBranch.innerHTML = `Chi nhánh`
+  winnerDept.innerHTML = `Phòng ban:`
+}
+
 export function showAward() {
   let award = awards[currAwardIdx];
   if (!award) {
@@ -42,12 +51,14 @@ export function showAward() {
 }
 
 export function nextAward() {
+  cleanWinnerPerson();
   ++currAwardIdx;
   if (currAwardIdx > awards.length - 1) currAwardIdx = 0;
   showAward();
 }
 
 export function previousAward() {
+  cleanWinnerPerson();
   --currAwardIdx;
   if (currAwardIdx < 0) currAwardIdx = awards.length - 1;
   showAward();
