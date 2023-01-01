@@ -1,0 +1,1268 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "Code": "001",
+      "Name": "NGUYỄN TRÍ DŨNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 2,
+      "Code": "005",
+      "Name": "NGUYỄN THỊ HẬU",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 3,
+      "Code": "006",
+      "Name": "PHẠM THỊ LAN HƯƠNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 4,
+      "Code": "008",
+      "Name": "NGUYỄN THỊ HUYỀN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 5,
+      "Code": "009",
+      "Name": "NGUYỄN THỊ HỒNG LÊ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 6,
+      "Code": "010",
+      "Name": "PHẠM THÙY LINH HP",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Gom BEEHPH"
+    },
+    {
+      "id": 8,
+      "Code": "018",
+      "Name": "NGUYỄN THỊ PHƯƠNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 9,
+      "Code": "019",
+      "Name": "TRẦN THỊ QUYÊN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 10,
+      "Code": "021",
+      "Name": "VŨ THỊ THU THỦY",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 11,
+      "Code": "022",
+      "Name": "ĐỖ THỊ THANH THỦY",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 12,
+      "Code": "031",
+      "Name": "NGUYỄN VĂN HIỆU",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Gom BEEHPH"
+    },
+    {
+      "id": 13,
+      "Code": "033",
+      "Name": "NGUYỄN THỊ THANH HUYỀN ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 14,
+      "Code": "035",
+      "Name": "TRỊNH KHẮC TOÀN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Công Nghệ Thông Tin BEEHPH"
+    },
+    {
+      "id": 15,
+      "Code": "044",
+      "Name": "ĐÀO THỊ HẢO",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 16,
+      "Code": "050",
+      "Name": "PHẠM THỊ HẬU",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 17,
+      "Code": "060",
+      "Name": "NGUYỄN TIẾN ĐẠT",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hành Chính BEEHPH"
+    },
+    {
+      "id": 18,
+      "Code": "062",
+      "Name": "LÊ VĂN THẢO",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 19,
+      "Code": "063",
+      "Name": "PHẠM THỊ XUÂN HẬU",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 20,
+      "Code": "067",
+      "Name": "ĐỖ DUY TÂN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 21,
+      "Code": "068",
+      "Name": "NGUYỄN HỮU TÙNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 22,
+      "Code": "069",
+      "Name": "NGÔ THỊ THANH NHÀN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Gom BEEHPH"
+    },
+    {
+      "id": 23,
+      "Code": "070",
+      "Name": "PHẠM TIẾN HÙNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 24,
+      "Code": "071",
+      "Name": "NGUYỄN HOÀNG MINH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 25,
+      "Code": "074",
+      "Name": "NGUYỄN THỊ QUỲNH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 26,
+      "Code": "077",
+      "Name": "NGUYỄN VĂN MINH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 27,
+      "Code": "080",
+      "Name": "NGUYỄN VĂN TÀI",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 28,
+      "Code": "081",
+      "Name": "NGUYỄN VĂN HƯNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hành Chính BEEHPH"
+    },
+    {
+      "id": 29,
+      "Code": "084",
+      "Name": "NGUYỄN XUÂN BÁCH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 30,
+      "Code": "085",
+      "Name": "PHẠM HỮU TẢI",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 31,
+      "Code": "090",
+      "Name": "LÊ VĂN DÂN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 32,
+      "Code": "091",
+      "Name": "NGUYỄN THỊ THANH HUYỀN",
+      "Branch": "A. BEE - CORP",
+      "Dept": "Phát triển kinh doanh BEECORP"
+    },
+    {
+      "id": 33,
+      "Code": "092",
+      "Name": "PHẠM MINH PHƯƠNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 34,
+      "Code": "094",
+      "Name": "ĐẶNG THỊ ÁNH TUYẾT",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 35,
+      "Code": "104",
+      "Name": "ĐẶNG THỊ HUẾ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 36,
+      "Code": "110",
+      "Name": "LÊ MINH SƠN",
+      "Branch": "Q. BEE - Hải Dương",
+      "Dept": "Giao Nhận BEEHD"
+    },
+    {
+      "id": 37,
+      "Code": "113",
+      "Name": "TRẦN THỊ NGỌC TRÂM",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 38,
+      "Code": "117",
+      "Name": "NGUYỄN THỊ XUÂN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 39,
+      "Code": "119",
+      "Name": "NGUYỄN HỮU HÒA",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 40,
+      "Code": "125",
+      "Name": "ĐOÀN MẠNH KHẢI",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 41,
+      "Code": "130",
+      "Name": "LÊ MINH LAI",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Dự án  BEEHPH"
+    },
+    {
+      "id": 42,
+      "Code": "137",
+      "Name": "VŨ THỊ THU HUYỀN",
+      "Branch": "A. BEE - CORP",
+      "Dept": "Phát triển kinh doanh BEECORP"
+    },
+    {
+      "id": 43,
+      "Code": "139",
+      "Name": "NGUYỄN THỊ THÙY TRANG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 44,
+      "Code": "140",
+      "Name": "TRẦN THỊ THỦY",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 45,
+      "Code": "141",
+      "Name": "CHU THI THANH MAI",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 46,
+      "Code": "142",
+      "Name": "NGUYỄN THÙY TRANG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 48,
+      "Code": "146",
+      "Name": "NGUYỄN XUÂN TRƯỜNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hành Chính BEEHPH"
+    },
+    {
+      "id": 49,
+      "Code": "149",
+      "Name": "HOÀNG ĐÌNH THỊNH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 50,
+      "Code": "150",
+      "Name": "ĐỖ HOÀNG NAM",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 51,
+      "Code": "152",
+      "Name": "PHẠM THỊ ĐÔNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 52,
+      "Code": "153",
+      "Name": "NGUYỄN THỊ PHƯƠNG THẢO",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 53,
+      "Code": "155",
+      "Name": "ĐỖ NGỌC TRƯỜNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 54,
+      "Code": "156",
+      "Name": "ĐOÀN VĂN CHÍNH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 55,
+      "Code": "159",
+      "Name": "TĂNG QUANG HÙNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 56,
+      "Code": "160",
+      "Name": "LÊ THANH TÚ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 57,
+      "Code": "161",
+      "Name": "LÊ ĐÌNH HỘI",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 58,
+      "Code": "163",
+      "Name": "NGUYỄN MINH GIANG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 59,
+      "Code": "164",
+      "Name": "NGUYỄN NGỌC SƠN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 60,
+      "Code": "165",
+      "Name": "NGÔ QUANG ĐỨC",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 61,
+      "Code": "167",
+      "Name": "ĐOÀN THU HUYỀN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 62,
+      "Code": "169",
+      "Name": "VÕ THỊ NGỌC",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Team hỗ trợ VP vệ tinh BEEHPH"
+    },
+    {
+      "id": 63,
+      "Code": "183",
+      "Name": "PHẠM THÚY TRANG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 64,
+      "Code": "199",
+      "Name": "ĐỖ NGỌC QUÝ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Dự án  BEEHPH"
+    },
+    {
+      "id": 65,
+      "Code": "200",
+      "Name": "TRẦN HỒNG VINH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 66,
+      "Code": "202",
+      "Name": "NGUYỄN HOÀNG CƯỜNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 67,
+      "Code": "203",
+      "Name": "TRƯƠNG ANH DŨNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 68,
+      "Code": "204",
+      "Name": "BÙI THỊ THANH TÚ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 69,
+      "Code": "206",
+      "Name": "HOÀNG BÁ CHỨC",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 70,
+      "Code": "207",
+      "Name": "LƯU ĐỨC ANH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 71,
+      "Code": "210",
+      "Name": "LÊ THÚY HẰNG",
+      "Branch": "A. BEE - CORP",
+      "Dept": "Phát triển kinh doanh BEECORP"
+    },
+    {
+      "id": 72,
+      "Code": "211",
+      "Name": "VŨ THỊ THU TRANG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 73,
+      "Code": "212",
+      "Name": "NGUYỄN ĐỨC KIÊN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 74,
+      "Code": "213",
+      "Name": "NGUYỄN THỊ LAN PHƯƠNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 75,
+      "Code": "215",
+      "Name": "TRẦN NHẬT TIẾN",
+      "Branch": "A. BEE - CORP",
+      "Dept": "Nhân Sự BEECORP."
+    },
+    {
+      "id": 76,
+      "Code": "217",
+      "Name": "VŨ THỊ THANH HẰNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hành Chính BEEHPH"
+    },
+    {
+      "id": 77,
+      "Code": "218",
+      "Name": "PHÙNG SĨ ĐỨC",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 78,
+      "Code": "220",
+      "Name": "BÙI VIỆT Anh",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 79,
+      "Code": "221",
+      "Name": "LÃ VĂN NGHIÊM",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 80,
+      "Code": "222",
+      "Name": "ĐOÀN THỊ MAI PHƯƠNG",
+      "Branch": "A. BEE - CORP",
+      "Dept": "Phát triển kinh doanh BEECORP"
+    },
+    {
+      "id": 81,
+      "Code": "223",
+      "Name": "PHẠM THỊ PHƯƠNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 82,
+      "Code": "224",
+      "Name": "TÔ THỊ THÙY VÂN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 83,
+      "Code": "227",
+      "Name": "LƯƠNG THỊ HỆ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 84,
+      "Code": "229",
+      "Name": "NGUYỄN SƠN XIM",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 85,
+      "Code": "235",
+      "Name": "TRẦN THỊ NGA",
+      "Branch": "A. BEE - CORP",
+      "Dept": "OF1"
+    },
+    {
+      "id": 86,
+      "Code": "236",
+      "Name": "NGUYỄN  XUÂN THÀNH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 87,
+      "Code": "238",
+      "Name": "ĐÀM THỊ NHUNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 88,
+      "Code": "239",
+      "Name": "NGUYỄN THỊ QUỲNH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 89,
+      "Code": "241",
+      "Name": "NGUYỄN THỊ THÙY DƯƠNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 90,
+      "Code": "243",
+      "Name": "LÊ THỊ THÙY DUNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 91,
+      "Code": "250",
+      "Name": "TRẦN THỊ THÙY DƯƠNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 92,
+      "Code": "251",
+      "Name": "ĐOÀN HỮU THẢO",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 93,
+      "Code": "252",
+      "Name": "ĐOÀN VĂN TRỌNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 94,
+      "Code": "256",
+      "Name": "KHỔNG QUỐC TRUNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 95,
+      "Code": "257",
+      "Name": "ĐOÀN VĂN TÂM",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 96,
+      "Code": "258",
+      "Name": "PHẠM THỊ THU YẾN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Gom BEEHPH"
+    },
+    {
+      "id": 97,
+      "Code": "259",
+      "Name": "NGUYỄN QUỐC KHÁNH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 98,
+      "Code": "260",
+      "Name": "LEE GYO SOO",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 99,
+      "Code": "261",
+      "Name": "NGUYỄN THỊ THU HƯỜNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kinh Doanh BEEHPH"
+    },
+    {
+      "id": 100,
+      "Code": "265",
+      "Name": "ĐINH ĐỨC HUY",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 101,
+      "Code": "266",
+      "Name": "VŨ ĐỨC THẮNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 102,
+      "Code": "267",
+      "Name": "TRƯƠNG THÚY VÂN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 103,
+      "Code": "268",
+      "Name": "NGUYỄN QUANG CƯỜNG",
+      "Branch": "A. BEE - CORP",
+      "Dept": "Phát triển kinh doanh BEECORP"
+    },
+    {
+      "id": 104,
+      "Code": "269",
+      "Name": "NGUYỄN THỊ HIỀN HP",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Gom BEEHPH"
+    },
+    {
+      "id": 105,
+      "Code": "270",
+      "Name": "TRỊNH VĂN HÙNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 106,
+      "Code": "271",
+      "Name": "PHẠM THỊ NHÃ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 107,
+      "Code": "272",
+      "Name": "VŨ DUY HOÀNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 108,
+      "Code": "273",
+      "Name": "PHẠM HỒNG NHUNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 109,
+      "Code": "275",
+      "Name": "NGUYỄN THỊ YẾN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Gom BEEHPH"
+    },
+    {
+      "id": 110,
+      "Code": "278",
+      "Name": "ĐOÀN MINH HƯƠNG",
+      "Branch": "A. BEE - CORP",
+      "Dept": "OF1"
+    },
+    {
+      "id": 111,
+      "Code": "279",
+      "Name": "NGUYỄN BÙI NGỌC DIỆP",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 112,
+      "Code": "280",
+      "Name": "QUẢN THỊ MINH ĐỨC",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 113,
+      "Code": "281",
+      "Name": "TRẦN THANH MAI",
+      "Branch": "A. BEE - CORP",
+      "Dept": "OF1"
+    },
+    {
+      "id": 114,
+      "Code": "282",
+      "Name": "VŨ THỊ MINH HIỀN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 115,
+      "Code": "283",
+      "Name": "NGUYỄN NHƯ THÙY",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Team hỗ trợ VP vệ tinh BEEHPH"
+    },
+    {
+      "id": 116,
+      "Code": "284",
+      "Name": "CHU QUANG THOẠI",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 117,
+      "Code": "285",
+      "Name": "NGUYỄN HỮU PHÚ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 118,
+      "Code": "288",
+      "Name": "NGUYỄN PHƯƠNG ANH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Team hỗ trợ VP vệ tinh BEEHPH"
+    },
+    {
+      "id": 119,
+      "Code": "290",
+      "Name": "BÙI VĂN HÀ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 120,
+      "Code": "292",
+      "Name": "TRẦN TIẾN ĐẠT",
+      "Branch": "A. BEE - CORP",
+      "Dept": "Phát triển kinh doanh BEECORP"
+    },
+    {
+      "id": 121,
+      "Code": "293",
+      "Name": "NGUYỄN THỊ LAN TƯỜNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Gom BEEHPH"
+    },
+    {
+      "id": 122,
+      "Code": "295",
+      "Name": "VŨ VIỆT NAM",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Giao Nhận BEEHPH"
+    },
+    {
+      "id": 123,
+      "Code": "300",
+      "Name": "ĐỒNG THỊ MINH ÁNH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Xuất BEEHPH"
+    },
+    {
+      "id": 124,
+      "Code": "303",
+      "Name": "Bùi Thị Ngọc Ánh",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 125,
+      "Code": "304",
+      "Name": "VŨ THỊ DIỆU HƯƠNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 126,
+      "Code": "306",
+      "Name": "NGUYỄN VIỆT CƯỜNG",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 127,
+      "Code": "307",
+      "Name": "PHẠM QUANG THANH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Dự án  BEEHPH"
+    },
+    {
+      "id": 128,
+      "Code": "308",
+      "Name": "ĐỖ THỊ HƯƠNG QUỲNH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Gom BEEHPH"
+    },
+    {
+      "id": 129,
+      "Code": "310",
+      "Name": "LƯƠNG THU HÀ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Hàng Nhập BEEHPH"
+    },
+    {
+      "id": 130,
+      "Code": "311",
+      "Name": "BÙI HỮU DUY",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 131,
+      "Code": "313",
+      "Name": "VŨ NGỌC HOA",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 132,
+      "Code": "314",
+      "Name": "NGUYỄN THỊ LAN Anh",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Kế Toán BEEHPH"
+    },
+    {
+      "id": 133,
+      "Code": "316",
+      "Name": "TRẦN THỊ THU HUYỀN",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 134,
+      "Code": "319",
+      "Name": "PHẠM VĂN DOANH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 135,
+      "Code": "320",
+      "Name": "PHAN QUANG VINH",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 136,
+      "Code": "322",
+      "Name": "NGUYỄN THỊ HƯỞNG",
+      "Branch": "A. BEE - CORP",
+      "Dept": "Trực thuộc CEO - BEECORP"
+    },
+    {
+      "id": 137,
+      "Code": "323",
+      "Name": "PHẠM VĂN NGỌ",
+      "Branch": "D. BEE - Hải Phòng",
+      "Dept": "Phòng Trucking BEEHPH"
+    },
+    {
+      "id": 138,
+      "Code": "338",
+      "Name": "ĐINH THỊ HIỀN",
+      "Branch": "A. BEE - CORP",
+      "Dept": "Phát triển kinh doanh BEECORP"
+    },
+    {
+      "id": 139,
+      "Code": 401,
+      "Name": "NGUYỄN THỊ OANH",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Chăm Sóc Khách Hàng BEEND "
+    },
+    {
+      "id": 140,
+      "Code": 404,
+      "Name": "PHẠM VĂN THÔNG",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Kinh Doanh BEEND"
+    },
+    {
+      "id": 141,
+      "Code": 405,
+      "Name": "VŨ THỊ NGUYỆT",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Chăm Sóc Khách Hàng BEEND "
+    },
+    {
+      "id": 142,
+      "Code": 410,
+      "Name": "NGUYỄN TIẾN TOÀN",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Giao Nhận BEETH"
+    },
+    {
+      "id": 143,
+      "Code": 417,
+      "Name": "ĐÀM THỊ THÚY HỒNG",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Giao nhận BEEND"
+    },
+    {
+      "id": 144,
+      "Code": 421,
+      "Name": "MAI THỊ HẢI THÙY",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Giao nhận BEEND"
+    },
+    {
+      "id": 145,
+      "Code": 422,
+      "Name": "TRẦN QUỐC CHIẾN",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Kinh Doanh BEEND"
+    },
+    {
+      "id": 146,
+      "Code": 423,
+      "Name": "TRẦN THỊ HỒNG LINH",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Kinh Doanh BEEND"
+    },
+    {
+      "id": 147,
+      "Code": 431,
+      "Name": "ĐỖ KHẮC KÍNH",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Giao nhận BEEND"
+    },
+    {
+      "id": 149,
+      "Code": 435,
+      "Name": "HOÀNG LAN Anh",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Giao nhận BEEND"
+    },
+    {
+      "id": 150,
+      "Code": 438,
+      "Name": "NGUYỄN THỊ OANH",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Giao nhận BEETB"
+    },
+    {
+      "id": 151,
+      "Code": 439,
+      "Name": "TRẦN TRỌNG TRÌNH",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Kinh Doanh BEEND"
+    },
+    {
+      "id": 152,
+      "Code": 440,
+      "Name": "BÙI TRUNG HẢI",
+      "Branch": "L. BEE - Nam Định",
+      "Dept": "Giao nhận BEETB"
+    },
+    {
+      "id": 153,
+      "Code": 501,
+      "Name": "NGUYỄN THỊ THU",
+      "Branch": "ZB. BEE - HÀ NAM",
+      "Dept": "Giao Nhận BEEHNM"
+    },
+    {
+      "id": 154,
+      "Code": 502,
+      "Name": "ĐINH HỒNG SƠN",
+      "Branch": "ZB. BEE - HÀ NAM",
+      "Dept": "Giao Nhận BEEHNM"
+    },
+    {
+      "id": 155,
+      "Code": 504,
+      "Name": "TRẦN THỊ MINH THÚY",
+      "Branch": "ZB. BEE - HÀ NAM",
+      "Dept": "Giao Nhận BEEHNM"
+    },
+    {
+      "id": 156,
+      "Code": 530,
+      "Name": "BÙI THỊ HỒNG HẠNH",
+      "Branch": "ZB. BEE - HÀ NAM",
+      "Dept": "Giao Nhận BEEHNM"
+    },
+    {
+      "id": 157,
+      "Code": 601,
+      "Name": "Hồ Thanh Huyền",
+      "Branch": "Nghệ An",
+      "Dept": "Kinh Doanh BEENA"
+    },
+    {
+      "id": 158,
+      "Code": 602,
+      "Name": "CAO THI NGỌC TÂM",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Kinh Doanh BEETHD"
+    },
+    {
+      "id": 159,
+      "Code": 603,
+      "Name": "Nông Thị Hương Trà",
+      "Branch": "Nghệ An",
+      "Dept": "Kinh Doanh BEENA"
+    },
+    {
+      "id": 160,
+      "Code": 606,
+      "Name": "LÊ THỊ THÚY",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Kinh Doanh BEETHD"
+    },
+    {
+      "id": 161,
+      "Code": 607,
+      "Name": "LÊ THỊ THÚY HẰNG",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Kinh Doanh BEETHD"
+    },
+    {
+      "id": 162,
+      "Code": 609,
+      "Name": "ĐẶNG THỊ HƯƠNG",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Giao Nhận BEETH"
+    },
+    {
+      "id": 163,
+      "Code": 610,
+      "Name": "LÊ HUY TÙNG",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Giao Nhận BEETH"
+    },
+    {
+      "id": 164,
+      "Code": 611,
+      "Name": "ĐOÀN THỊ THANH XUÂN",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Giao Nhận BEETH"
+    },
+    {
+      "id": 165,
+      "Code": 612,
+      "Name": "NGUYỄN THỊ THANH TRANG",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Giao Nhận BEETH"
+    },
+    {
+      "id": 166,
+      "Code": 613,
+      "Name": "PHẠM VĂN HIỀN",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Giao Nhận BEETH"
+    },
+    {
+      "id": 167,
+      "Code": 616,
+      "Name": "LÊ DUY VÂN CAO",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Kinh Doanh BEETHD"
+    },
+    {
+      "id": 168,
+      "Code": 618,
+      "Name": "NGUYỄN THỊ ĐIỆP",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Giao Nhận BEETH"
+    },
+    {
+      "id": 169,
+      "Code": 630,
+      "Name": "NGUYỄN VĂN TRUNG",
+      "Branch": "S. BEE - Thanh Hóa",
+      "Dept": "Kinh Doanh BEETHD"
+    },
+    {
+      "id": 170,
+      "Code": 714,
+      "Name": "LÊ NGỌC ĐÀN",
+      "Branch": "OF1",
+      "Dept": "OF1"
+    },
+    {
+      "id": 171,
+      "Code": 718,
+      "Name": "PHẠM MINH CHIẾN",
+      "Branch": "OF1",
+      "Dept": "OF1"
+    },
+    {
+      "id": 172,
+      "Code": 721,
+      "Name": "LÊ QUANG NHẬT",
+      "Branch": "OF1",
+      "Dept": "OF1"
+    },
+    {
+      "id": 173,
+      "Code": 724,
+      "Name": "VŨ THỊ HUYỀN TRANG",
+      "Branch": "OF1",
+      "Dept": "OF1"
+    },
+    {
+      "id": 174,
+      "Code": 726,
+      "Name": "VŨ LÂM ANH",
+      "Branch": "OF1",
+      "Dept": "OF1"
+    },
+    {
+      "id": 175,
+      "Code": 728,
+      "Name": "LƯƠNG VĂN ĐẠT",
+      "Branch": "OF1",
+      "Dept": "OF1"
+    },
+    {
+      "id": 176,
+      "Code": 729,
+      "Name": "NGUYỄN NĂNG BÌNH",
+      "Branch": "OF1",
+      "Dept": "OF1"
+    },
+    {
+      "id": 177,
+      "Code": 733,
+      "Name": "NGUYỄN THỊ HUYỀN TRANG",
+      "Branch": "OF1",
+      "Dept": "OF1"
+    },
+    {
+      "id": 178,
+      "Code": 735,
+      "Name": "TRỊNH THANH YẾN",
+      "Branch": "OF1",
+      "Dept": "OF1"
+    }
+  ],
+  "awards": [
+    {
+      "Name": "Giải Nhất (test)",
+      "Description": "Des....1",
+      "MultiScroll": false,
+      "Timer": 0.5
+    },
+    {
+      "Name": "Giải Nhì (test)",
+      "Description": "Des....2",
+      "MultiScroll": true,
+      "Timer": 0.5
+    },
+    {
+      "Name": "Giải Ba (Quay nhiều số - 8s)",
+      "Description": "Des....3",
+      "MultiScroll": true,
+      "Timer": 8
+    },
+    {
+      "Name": "Giải 4 (Quay lần số - 3s)",
+      "Description": "Des....4",
+      "MultiScroll": false,
+      "Timer": 3
+    },
+    {
+      "Name": "Giải 5",
+      "Description": "Des....5",
+      "MultiScroll": true,
+      "Timer": 8
+    },
+    {
+      "Name": "Giải 6",
+      "Description": "Des....6",
+      "MultiScroll": true,
+      "Timer": 8
+    }
+  ],
+  "winners": []
+}

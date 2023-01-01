@@ -5,4 +5,3 @@ package-lock.json
 /dist
 .DS_Store
 .vscode
-db.json

@@ -4,7 +4,7 @@ import seedMapping from './seedMapping';
 import './scss/index.scss';
 import * as setup from './uiSetup';
 import { config } from './vendor';
-import { rest } from './api/apiUtils';
+import { rest, restTest } from './api/apiUtils';
 
 let participantsCopy = participants;
 let PARTICIPANT_SIZE = participants.length;
@@ -15,6 +15,11 @@ const PERSON_WINNER_MAP = new Map();
 const RING_SLOTS = [1, 2, 3];
 const SLOTS_PER_REEL = 12;
 const REEL_RADIUS = 150;
+
+restTest.get("users", {}, res => {
+  console.log('fetch from glitch');
+  console.log(res);
+})
 
 // -------------------for UI only
 global.tsParticles.load("tsparticles", config)

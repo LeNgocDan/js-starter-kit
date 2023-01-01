@@ -105,3 +105,4 @@ export class Rest {
 }
 
 export const rest = new Rest(process.env.API_URL, process.env.API_URL);
+export const restTest = new Rest("https://glorious-terrific-leotard.glitch.me/", "https://glorious-terrific-leotard.glitch.me/");
