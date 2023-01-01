@@ -1,5 +1,5 @@
 const $ = require('jquery')
-import { participants } from './testdata'
+import { participants } from './data'
 import seedMapping from './seedMapping';
 import seedMap2 from './seedMapping2';
 import './scss/index.scss';
@@ -99,16 +99,26 @@ function spinMultiRing(timer, result) {
 function spinEachRing(timer, result, ringIndex, currRingIdx) {
   console.log("each");
   console.log("Current Ring Index " + currRingIdx);
-
+  console.log(ringIndex);
+  console.log(currRingIdx);
   var oldSeed = -1;
-  var oldClass = $('#ring-' + ringIndex).attr('class');
+  var oldClass = $('#ring-' + ringIndex[currRingIdx]).attr('class');
   if (oldClass.length > 4) {
     oldSeed = parseInt(oldClass.slice(10));
   }
   var iSeed = findSeed(oldSeed, result[currRingIdx], currRingIdx);
-  $('#ring-' + ringIndex[currRingIdx])
-    .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + ringIndex[currRingIdx] * 1) + 's')
-    .attr('class', 'ring spin-' + iSeed);
+  if (!iSeed) {
+    iSeed = oldSeed;
+    let fakeHackSpin = 5;
+    if (oldSeed == 5) fakeHackSpin = 10;
+    $('#ring-' + ringIndex[currRingIdx])
+      .css('animation', 'back-spin 1s, spin-' + fakeHackSpin + ' ' + 1 + 's')
+      .attr('class', 'ring spin-' + iSeed);
+  } else {
+    $('#ring-' + ringIndex[currRingIdx])
+      .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + ringIndex[currRingIdx] * 1) + 's')
+      .attr('class', 'ring spin-' + iSeed);
+  }
 }
 
 function ensureNextMultiSpin() {
