@@ -1,17 +1,43 @@
 const $ = require('jquery')
-import { participants } from './data'
+import { participants } from './testdata'
 import seedMapping from './seedMapping';
-import seedMap2 from './seedMapping2';
 import './scss/index.scss';
 import * as setup from './uiSetup';
+import { config } from './vendor';
+import { rest } from './api/apiUtils';
+
 let participantsCopy = participants;
 let PARTICIPANT_SIZE = participants.length;
 const PERSON_WINNER_MAP = new Map();
+
 
 // initiate slots
 const RING_SLOTS = [1, 2, 3];
 const SLOTS_PER_REEL = 12;
 const REEL_RADIUS = 150;
+
+// -------------------for UI only
+global.tsParticles.load("tsparticles", config)
+let award = new setup.Award([]);
+
+rest.get("users", {}, (result) => {
+  console.log('----------------Load Participant ------------------');
+  if (result) {
+    participantsCopy = result;
+    PARTICIPANT_SIZE = participantsCopy.length;
+  }
+});
+
+rest.get("awards", {}, (result) => {
+  if (result) {
+    console.log('----------------Load Awards ------------------');
+    award = new setup.Award(result);
+  }
+})
+
+award.showAward();
+setup.hideGif();
+
 
 function createSlots(ringEle, ringIdx) {
   var slotAngle = 360 / SLOTS_PER_REEL;
@@ -27,17 +53,7 @@ function createSlots(ringEle, ringIdx) {
   }
 }
 
-function findSeed2(oldSeed, result) {
-  let newSeed = null;
-  for (var i = 0; i < seedMap2.length; i++) {
-    if (seedMap2[i].seed != oldSeed && seedMap2[i].result == result) {
-      newSeed = seedMap2[i].seed;
-    }
-  }
-  return newSeed;
-}
-
-function findSeed(oldSeed, result, ringIdx) {
+function findSeed(oldSeed, result, _ringIdx) {
   let newSeed = null;
   for (var i = 0; i < seedMapping.length; i++) {
     if (seedMapping[i].seed != oldSeed && seedMapping[i].result == result) {
@@ -57,15 +73,22 @@ function findSeed(oldSeed, result, ringIdx) {
 }
 
 function getWinnerPersonCode() {
-  console.log(PARTICIPANT_SIZE);
-  console.log(participantsCopy);
   let randomPersonIdx = Math.floor(Math.random() * PARTICIPANT_SIZE);
   const winnerPersons = participantsCopy.splice(randomPersonIdx, 1);
   let winnerPerson = winnerPersons[0];
-  PERSON_WINNER_MAP.set(winnerPerson['Code'], winnerPerson);
+  let id = winnerPerson['id'];
+  let code = winnerPerson['Code'];
+  rest.delete(`users/${id}`, {}, (result) => {
+    console.log('delete winner person from database');
+    console.log(result);
+  })
+  rest.post(`winners`, winnerPerson, (_result) => {
+    console.log('add winner user to list winners');
+  })
+
   PARTICIPANT_SIZE--;
   setup.showWinnerPerson(winnerPerson);
-  return winnerPerson["Code"].split('');
+  return code.split('');
 }
 
 function spinMultiRing(timer, result) {
@@ -92,8 +115,6 @@ function spinMultiRing(timer, result) {
         .attr('class', 'ring spin-' + iSeed);
     }
   }
-
-
 }
 
 function spinEachRing(timer, result, ringIndex, currRingIdx) {
@@ -137,10 +158,10 @@ $(document).ready(function () {
   }
 
   $('#btn-arrow-left').on('click', function () {
-    setup.previousAward();
+    award.previousAward();
   });
   $('#btn-arrow-right').on('click', function () {
-    setup.nextAward();
+    award.nextAward();
   });
 
   // -------------------- Spin Logic ------------------------------
@@ -150,10 +171,10 @@ $(document).ready(function () {
 
   // hook start button
   $('#slot-trigger').on('click', function () {
-    let TIMER = setup.getTimerAward();
+    let TIMER = award.getTimerAward();
     var delay = 0.5;
 
-    if (setup.isMultiScrolling()) {
+    if (award.isMultiScrolling()) {
       let closingCurtain = setup.isCurtainClosing();
       ensureNextMultiSpin();
 

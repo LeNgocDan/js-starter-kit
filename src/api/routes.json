@@ -1,4 +1,6 @@
 {
   "/users": "/users",
-  "/reset": "/reset"
+  "/reset": "/reset",
+  "/winners": "/winners",
+  "/awards": "/awards"
 }

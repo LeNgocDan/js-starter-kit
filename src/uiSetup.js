@@ -1,26 +1,92 @@
 import audio from './assets/music.mp3';
 import gif from './assets/peterparker.gif'
-import { config } from './vendor';
+
 import { awards } from './award'
 
 const curtainEle = document.getElementById("curtain");
 const curtainCheckedEle = document.getElementById("curtain-trigger");
-// const videoEle = document.getElementById('video');
 const btnTrigger = document.getElementById("slot-trigger");
 const audioEle = document.getElementById('audio');
 const gifEle = document.getElementById('gif');
 
-const nameAwardEle = document.getElementById('award-name');
 
 audioEle.src = audio;
-// videoEle.src = video;
 gifEle.src = gif;
 
-// showGif();
+export class Award {
+  awards = [];
+  currAwardIdx = 0;
+
+  constructor(awards) {
+    currAwardIdx = 0;
+    this.awards = awards;
+  }
+
+  showAward = () => {
+    let award = awards[currAwardIdx];
+    if (!award) {
+      alert('Please select a award');
+      return;
+    }
+    const nameAwardEle = document.getElementById('award-name');
+    nameAwardEle.innerHTML = award['Name'];
+  }
+
+  nextAward = () => {
+    this.cleanWinnerPerson();
+    ++currAwardIdx;
+    if (currAwardIdx > awards.length - 1) currAwardIdx = 0;
+    this.showAward();
+  }
+
+  previousAward = () => {
+    this.cleanWinnerPerson();
+    --currAwardIdx;
+    if (currAwardIdx < 0) currAwardIdx = awards.length - 1;
+    this.showAward();
+  }
+
+  getTimerAward = () => {
+    let award = awards[currAwardIdx];
+    if (!award) {
+      alert('Please select a award');
+      return;
+    }
+    if (award['Timer'] && award['Timer'] > 0) return award['Timer'];
+    return 8;
+  }
+
+  isMultiScrolling = () => {
+    let award = awards[currAwardIdx];
+    if (!award) {
+      alert('Please select a award');
+      return;
+    }
+    return award['MultiScroll'];
+  }
+
+  showWinnerPerson = (winner) => {
+    if (!winner) return;
+    const winnerName = document.getElementById("winner-name");
+    const winnerBranch = document.getElementById("winner-branch");
+    const winnerDept = document.getElementById("winner-dept");
+    winnerName.innerHTML = `${winner.Name}`
+    winnerBranch.innerHTML = `Chi nhánh: ${winner.Branch}`
+    winnerDept.innerHTML = `Phòng ban: ${winner.Dept}`
+  }
+
+  cleanWinnerPerson = () => {
+    const winnerName = document.getElementById("winner-name");
+    const winnerBranch = document.getElementById("winner-branch");
+    const winnerDept = document.getElementById("winner-dept");
+    winnerName.innerHTML = `Tên`
+    winnerBranch.innerHTML = `Chi nhánh`
+    winnerDept.innerHTML = `Phòng ban:`
+  }
+}
+
 // show ten giai thuong
 let currAwardIdx = 0;
-showAward();
-hideGif();
 
 export function showWinnerPerson(winner) {
   if (!winner) return;
@@ -39,48 +105,6 @@ export function cleanWinnerPerson() {
   winnerName.innerHTML = `Tên`
   winnerBranch.innerHTML = `Chi nhánh`
   winnerDept.innerHTML = `Phòng ban:`
-}
-
-export function showAward() {
-  let award = awards[currAwardIdx];
-  if (!award) {
-    alert('Please select a award');
-    return;
-  }
-  nameAwardEle.innerHTML = award['Name'];
-}
-
-export function nextAward() {
-  cleanWinnerPerson();
-  ++currAwardIdx;
-  if (currAwardIdx > awards.length - 1) currAwardIdx = 0;
-  showAward();
-}
-
-export function previousAward() {
-  cleanWinnerPerson();
-  --currAwardIdx;
-  if (currAwardIdx < 0) currAwardIdx = awards.length - 1;
-  showAward();
-}
-
-export function getTimerAward() {
-  let award = awards[currAwardIdx];
-  if (!award) {
-    alert('Please select a award');
-    return;
-  }
-  if (award['Timer'] && award['Timer'] > 0) return award['Timer'];
-  return 8;
-}
-
-export function isMultiScrolling() {
-  let award = awards[currAwardIdx];
-  if (!award) {
-    alert('Please select a award');
-    return;
-  }
-  return award['MultiScroll'];
 }
 
 export function showGif() {
@@ -118,28 +142,6 @@ export function enabledBtnTrigger() {
   btnTrigger.disabled = false;
 }
 
-export function updateStateWhenMultiStart() {
-  showGif();
-  enabledBtnTrigger();
-}
-
-export function updateStateWhenMultiStop() {
-  stopAudio();
-}
-
-export function updateStateWhenEachStart() {
-  showGif();
-  audioEle.play();
-}
-
-export function updateStateWhenEachRingStop() {
-
-}
-
-export function prepareToRolling() {
-  enabledBtnTrigger();
-}
-
 export function isCurtainClosing() {
   return !curtainCheckedEle.checked; // false => mo rem , true => dong rem
 }
@@ -148,6 +150,5 @@ export function closingCurtain() {
   curtainCheckedEle.checked = true;
 }
 
-// -------------------for UI only
-global.tsParticles.load("tsparticles", config)
+
 

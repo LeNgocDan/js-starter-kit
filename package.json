@@ -8,7 +8,7 @@
     "lt": "lt --port 3000 --subdomain jesse",
     "share": "npm-run-all --p open:src lt backend",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
-    "prebackend": "babel-node buildScripts/generateMockData",
+    "pprebackend": "babel-node buildScripts/generateMockData",
     "backend": "json-server --watch src/api/db.json --port 3001 --delay 500 --routes ./src/api/routes.json",
     "clean-dist": "rimraf ./dist && mkdir dist",
     "prebuild": "npm run clean-dist",
