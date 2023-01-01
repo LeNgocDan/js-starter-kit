@@ -1,6 +1,7 @@
 const $ = require('jquery')
 import { participants } from './testdata'
 import seedMapping from './seedMapping';
+import seedMap2 from './seedMapping2';
 import './scss/index.scss';
 import * as setup from './uiSetup';
 let participantsCopy = participants;
@@ -12,27 +13,47 @@ const RING_SLOTS = [1, 2, 3];
 const SLOTS_PER_REEL = 12;
 const REEL_RADIUS = 150;
 
-function createSlots(ring) {
+function createSlots(ringEle, ringIdx) {
   var slotAngle = 360 / SLOTS_PER_REEL;
-
   var seed = 0;
-
   for (var i = 0; i < SLOTS_PER_REEL; i++) {
     var slot = document.createElement('div');
     slot.className = 'slot';
     var transform = 'rotateX(' + (slotAngle * i) + 'deg) translateZ(' + REEL_RADIUS + 'px)';
     slot.style.transform = transform;
-    $(slot).append('<p>' + ((seed + i) % 10) + '</p>');
-    ring.append(slot);
+    let className = `ring-${ringIdx}-slot-number`;
+    $(slot).append('<p class="' + className + '">' + ((seed + i) % 10) + '</p>');
+    ringEle.append(slot);
   }
 }
 
-function findSeed(oldSeed, result) {
-  for (var i = 0; i < seedMapping.length; i++) {
-    if (seedMapping[i].seed != oldSeed && seedMapping[i].result == result) {
-      return seedMapping[i].seed;
+function findSeed2(oldSeed, result) {
+  let newSeed = null;
+  for (var i = 0; i < seedMap2.length; i++) {
+    if (seedMap2[i].seed != oldSeed && seedMap2[i].result == result) {
+      newSeed = seedMap2[i].seed;
     }
   }
+  return newSeed;
+}
+
+function findSeed(oldSeed, result, ringIdx) {
+  let newSeed = null;
+  for (var i = 0; i < seedMapping.length; i++) {
+    if (seedMapping[i].seed != oldSeed && seedMapping[i].result == result) {
+      newSeed = seedMapping[i].seed;
+    }
+  }
+  // if (!newSeed) {
+  //   for (var i = 0; i < $(`.ring-${ringIdx}-slot-number`).length; i++) {
+  //     let text = (seedMap2[i].seed + i) % 10;
+  //     $(`.ring-${ringIdx}-slot-number`)[i].innerHTML = seedMap2[i].result;
+  //     $(`.ring-${ringIdx}-slot-number`)[i].innerText = seedMap2[i].result;
+  //   }
+  //   console.log('\n call seed map 2 at ring ' + ringIdx);
+  //   newSeed = findSeed2(oldSeed, result);
+  // }
+  return newSeed;
 }
 
 function getWinnerPersonCode() {
@@ -48,20 +69,22 @@ function getWinnerPersonCode() {
 }
 
 function spinMultiRing(timer, result) {
-  console.log("ring all");
-  console.log("RESULT");
-  console.log(result);
   for (var i = 1; i <= 3; i++) {
     var oldSeed = -1;
     var oldClass = $('#ring-' + i).attr('class');
     if (oldClass.length > 4) {
       oldSeed = parseInt(oldClass.slice(10));
     }
-    var iSeed = findSeed(oldSeed, result[i - 1])
+    var iSeed = findSeed(oldSeed, result[i - 1], i);
+    console.log('Old Seed ' + oldSeed + 'New Seed ' + iSeed);
+    console.log("---------------------------------------------");
     if (!iSeed) {
-      iSeed = 10;
+      iSeed = oldSeed;
+      let fakeHackSpin = 0;
+      if (oldSeed == 0) fakeHackSpin = 11;
+
       $('#ring-' + i)
-        .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + 1 + 's')
+        .css('animation', 'back-spin 1s, spin-' + fakeHackSpin + ' ' + 1 + 's')
         .attr('class', 'ring spin-' + iSeed);
     } else {
       $('#ring-' + i)
@@ -69,6 +92,8 @@ function spinMultiRing(timer, result) {
         .attr('class', 'ring spin-' + iSeed);
     }
   }
+
+
 }
 
 function spinEachRing(timer, result, ringIndex, currRingIdx) {
@@ -80,7 +105,7 @@ function spinEachRing(timer, result, ringIndex, currRingIdx) {
   if (oldClass.length > 4) {
     oldSeed = parseInt(oldClass.slice(10));
   }
-  var iSeed = findSeed(oldSeed, result[currRingIdx]);
+  var iSeed = findSeed(oldSeed, result[currRingIdx], currRingIdx);
   $('#ring-' + ringIndex[currRingIdx])
     .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + ringIndex[currRingIdx] * 1) + 's')
     .attr('class', 'ring spin-' + iSeed);
@@ -98,7 +123,7 @@ function ensureNextMultiSpin() {
 
 $(document).ready(function () {
   for (var ringIndex of RING_SLOTS) {
-    createSlots($('#ring-' + ringIndex));
+    createSlots($('#ring-' + ringIndex), ringIndex);
   }
 
   $('#btn-arrow-left').on('click', function () {
