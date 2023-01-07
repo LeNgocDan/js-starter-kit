@@ -1,38 +1,37 @@
 const dataJson = [{
-  "Name": "Giải Nhất (test)",
-  "Description": "Des....1",
-  "MultiScroll": false,
-  "Timer": 0.5
-},
-{
-  "Name": "Giải Nhì (test)",
-  "Description": "Des....2",
-  "MultiScroll": true,
-  "Timer": 0.5
-},
-{
-  "Name": "Giải Ba (Quay nhiều số - 8s)",
-  "Description": "Des....3",
+  "Name": "Giải Khuyết Khích",
   "MultiScroll": true,
   "Timer": 8
 },
 {
-  "Name": "Giải 4 (Quay lần số - 3s)",
-  "Description": "Des....4",
+  "Name": "Giải Ba",
+  "MultiScroll": true,
+  "Timer": 8,
+},
+{
+  "Name": "Giải bốc thăm trúng thưởng - NTT Sales Dept",
+  "MultiScroll": true,
+  "Timer": 8
+},
+{
+  "Name": "Giải bốc thăm trúng thưởng - NTT Ms. Minh Jasmine",
+  "MultiScroll": true,
+  "Timer": 8
+},
+{
+  "Name": "Giải Nhì",
   "MultiScroll": false,
   "Timer": 3
 },
 {
-  "Name": "Giải 5",
-  "Description": "Des....5",
-  "MultiScroll": true,
-  "Timer": 8
+  "Name": "Giải Nhất",
+  "MultiScroll": false,
+  "Timer": 3
 },
 {
-  "Name": "Giải 6",
-  "Description": "Des....6",
-  "MultiScroll": true,
-  "Timer": 8
+  "Name": "Giải Đặc Biệt",
+  "MultiScroll": false,
+  "Timer": 3
 },
 ]
 
