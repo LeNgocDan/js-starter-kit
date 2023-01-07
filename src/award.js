@@ -1,5 +1,5 @@
 const dataJson = [{
-  "Name": "Giải Khuyết Khích",
+  "Name": "Giải Khuyến Khích",
   "MultiScroll": true,
   "Timer": 8
 },
