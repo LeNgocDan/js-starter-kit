@@ -828,205 +828,205 @@ const dataJson = [
     "Dept": "Phát triển kinh doanh BEECORP"
   },
   {
-    "Code": 401,
+    "Code": "401",
     "Name": "NGUYỄN THỊ OANH",
     "Branch": "L. BEE - Nam Định",
     "Dept": "Chăm Sóc Khách Hàng BEEND "
   },
   {
-    "Code": 404,
+    "Code": "404",
     "Name": "PHẠM VĂN THÔNG",
     "Branch": "L. BEE - Nam Định",
     "Dept": "Kinh Doanh BEEND"
   },
   {
-    "Code": 405,
+    "Code": "405",
     "Name": "VŨ THỊ NGUYỆT",
     "Branch": "L. BEE - Nam Định",
     "Dept": "Chăm Sóc Khách Hàng BEEND "
   },
   {
-    "Code": 410,
+    "Code": "410",
     "Name": "NGUYỄN TIẾN TOÀN",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Giao Nhận BEETH"
   },
   {
-    "Code": 417,
+    "Code": "417",
     "Name": "ĐÀM THỊ THÚY HỒNG",
     "Branch": "L. BEE - Nam Định",
     "Dept": "Giao nhận BEEND"
   },
   {
-    "Code": 431,
+    "Code": "431",
     "Name": "ĐỖ KHẮC KÍNH",
     "Branch": "L. BEE - Nam Định",
     "Dept": "Giao nhận BEEND"
   },
   {
-    "Code": 438,
+    "Code": "438",
     "Name": "NGUYỄN THỊ OANH",
     "Branch": "L. BEE - Nam Định",
     "Dept": "Giao nhận BEETB"
   },
   {
-    "Code": 439,
+    "Code": "439",
     "Name": "TRẦN TRỌNG TRÌNH",
     "Branch": "L. BEE - Nam Định",
     "Dept": "Kinh Doanh BEEND"
   },
   {
-    "Code": 501,
+    "Code": "501",
     "Name": "NGUYỄN THỊ THU",
     "Branch": "ZB. BEE - HÀ NAM",
     "Dept": "Giao Nhận BEEHNM"
   },
   {
-    "Code": 502,
+    "Code": "502",
     "Name": "ĐINH HỒNG SƠN",
     "Branch": "ZB. BEE - HÀ NAM",
     "Dept": "Giao Nhận BEEHNM"
   },
   {
-    "Code": 504,
+    "Code": "504",
     "Name": "TRẦN THỊ MINH THÚY",
     "Branch": "ZB. BEE - HÀ NAM",
     "Dept": "Giao Nhận BEEHNM"
   },
   {
-    "Code": 530,
+    "Code": "530",
     "Name": "BÙI THỊ HỒNG HẠNH",
     "Branch": "ZB. BEE - HÀ NAM",
     "Dept": "Giao Nhận BEEHNM"
   },
   {
-    "Code": 601,
+    "Code": "601",
     "Name": "Hồ Thanh Huyền",
     "Branch": "Nghệ An",
     "Dept": "Kinh Doanh BEENA"
   },
   {
-    "Code": 602,
+    "Code": "602",
     "Name": "CAO THI NGỌC TÂM",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Kinh Doanh BEETHD"
   },
   {
-    "Code": 603,
+    "Code": "603",
     "Name": "Nông Thị Hương Trà",
     "Branch": "Nghệ An",
     "Dept": "Kinh Doanh BEENA"
   },
   {
-    "Code": 606,
+    "Code": "606",
     "Name": "LÊ THỊ THÚY",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Kinh Doanh BEETHD"
   },
   {
-    "Code": 607,
+    "Code": "607",
     "Name": "LÊ THỊ THÚY HẰNG",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Kinh Doanh BEETHD"
   },
   {
-    "Code": 609,
+    "Code": "609",
     "Name": "ĐẶNG THỊ HƯƠNG",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Giao Nhận BEETH"
   },
   {
-    "Code": 611,
+    "Code": "611",
     "Name": "ĐOÀN THỊ THANH XUÂN",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Giao Nhận BEETH"
   },
   {
-    "Code": 612,
+    "Code": "612",
     "Name": "NGUYỄN THỊ THANH TRANG",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Giao Nhận BEETH"
   },
   {
-    "Code": 613,
+    "Code": "613",
     "Name": "PHẠM VĂN HIỀN",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Giao Nhận BEETH"
   },
   {
-    "Code": 616,
+    "Code": "616",
     "Name": "LÊ DUY VÂN CAO",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Kinh Doanh BEETHD"
   },
   {
-    "Code": 618,
+    "Code": "618",
     "Name": "NGUYỄN THỊ ĐIỆP",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Giao Nhận BEETH"
   },
   {
-    "Code": 630,
+    "Code": "630",
     "Name": "NGUYỄN VĂN TRUNG",
     "Branch": "S. BEE - Thanh Hóa",
     "Dept": "Kinh Doanh BEETHD"
   },
   {
-    "Code": 714,
+    "Code": "714",
     "Name": "LÊ NGỌC ĐÀN",
     "Branch": "OF1",
     "Dept": "OF1"
   },
   {
-    "Code": 718,
+    "Code": "718",
     "Name": "PHẠM MINH CHIẾN",
     "Branch": "OF1",
     "Dept": "OF1"
   },
   {
-    "Code": 721,
+    "Code": "721",
     "Name": "LÊ QUANG NHẬT",
     "Branch": "OF1",
     "Dept": "OF1"
   },
   {
-    "Code": 724,
+    "Code": "724",
     "Name": "VŨ THỊ HUYỀN TRANG",
     "Branch": "OF1",
     "Dept": "OF1"
   },
   {
-    "Code": 726,
+    "Code": "726",
     "Name": "VŨ LÂM ANH",
     "Branch": "OF1",
     "Dept": "OF1"
   },
   {
-    "Code": 728,
+    "Code": "728",
     "Name": "LƯƠNG VĂN ĐẠT",
     "Branch": "OF1",
     "Dept": "OF1"
   },
   {
-    "Code": 729,
+    "Code": "729",
     "Name": "NGUYỄN NĂNG BÌNH",
     "Branch": "OF1",
     "Dept": "OF1"
   },
   {
-    "Code": 733,
+    "Code": "733",
     "Name": "NGUYỄN THỊ HUYỀN TRANG",
     "Branch": "OF1",
     "Dept": "OF1"
   },
   {
-    "Code": 735,
+    "Code": "735",
     "Name": "TRỊNH THANH YẾN",
     "Branch": "OF1",
     "Dept": "OF1"
   },
   {
-    "Code": 813,
+    "Code": "813",
     "Name": "NGUYỄN THANH HIỀN",
     "Branch": "A. BEE - CORP",
     "Dept": "Phát triển kinh doanh BEECORP"
