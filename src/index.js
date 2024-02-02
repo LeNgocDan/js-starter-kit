@@ -84,10 +84,12 @@ function getWinnerPersonCode() {
   let winnerPerson = winnerPersons[0];
   let id = winnerPerson['id'];
   let code = winnerPerson['Code'];
+
   rest.delete(`users/${id}`, {}, (result) => {
     console.log('delete winner person from database');
     console.log(result);
   })
+
   rest.post(`winners`, winnerPerson, (_result) => {
     console.log('add winner user to list winners');
   })
@@ -186,7 +188,17 @@ $(document).ready(function () {
   // -------------------- Spin Logic ------------------------------
   // Track when rolling each ring
   let currRingIdx = -1;
+
   let RESULT;
+
+  const LUCKY_NUMBER = ['1234', '5678', '1111', '2222', '3333']
+  const LUCKY_NUMBER_2 = ['0011', '0012', '0013', '0014', '0015']
+
+  function getRandomElement(luckyNumbers) {
+    const randomIndex = Math.floor(Math.random() * luckyNumbers.length);
+    let code = luckyNumbers[randomIndex];
+    return code.split('');
+  }
 
   // hook start button
   $('#slot-trigger').on('click', function () {
@@ -202,9 +214,11 @@ $(document).ready(function () {
       // ensureNextMultiSpin();
       setup.playAudio();
       setup.disabledBtnTrigger();
+
       // let RESULT = getWinnerPersonCode();
-      let RESULT = [1, 1, 1, 1]
-      if (spinTwoNumber) RESULT = [0, 0, 1, 1]
+
+      let RESULT = getRandomElement(LUCKY_NUMBER);
+      if (spinTwoNumber) RESULT = getRandomElement(LUCKY_NUMBER_2)
       console.log("RESULT " + RESULT);
 
       spinMultiRing(TIMER, RESULT);

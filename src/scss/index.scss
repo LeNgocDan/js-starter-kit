@@ -92,6 +92,12 @@
   background: #8bbabb;
 }
 
+.btn-action-primary:hover {
+  background: #3f6e6e;
+  border-color: #3f6e6e;
+  color: #fff;
+}
+
 .btn-action-outline-primary {
   color: #8bbabb;
   border-color: #8bbabb;
@@ -101,6 +107,12 @@
   color: #fff;
   border-color: #b96b9f;
   background: #b96b9f;
+}
+
+.btn-action-secondary:hover {
+  background: #9b447c;
+  border-color: #9b447c;
+  color: #fff;
 }
 
 .btn-action-round {
