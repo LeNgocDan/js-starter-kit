@@ -1,36 +1,24 @@
 const dataJson = [{
-  "Name": "Giải Nhất (test)",
+  "Name": "Giải Nhất",
   "Description": "Des....1",
-  "MultiScroll": false,
-  "Timer": 0.5
+  "MultiScroll": true,
+  "Timer": 8
 },
 {
-  "Name": "Giải Nhì (test)",
+  "Name": "Giải Nhì",
   "Description": "Des....2",
   "MultiScroll": true,
-  "Timer": 0.5
+  "Timer": 8
 },
 {
-  "Name": "Giải Ba (Quay nhiều số - 8s)",
+  "Name": "Giải Ba",
   "Description": "Des....3",
   "MultiScroll": true,
   "Timer": 8
 },
 {
-  "Name": "Giải 4 (Quay lần số - 3s)",
+  "Name": "Giải Khuyến khích",
   "Description": "Des....4",
-  "MultiScroll": false,
-  "Timer": 3
-},
-{
-  "Name": "Giải 5",
-  "Description": "Des....5",
-  "MultiScroll": true,
-  "Timer": 8
-},
-{
-  "Name": "Giải 6",
-  "Description": "Des....6",
   "MultiScroll": true,
   "Timer": 8
 },
