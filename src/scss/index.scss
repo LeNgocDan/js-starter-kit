@@ -66,3 +66,61 @@
     height: 4rem;
   }
 }
+
+.btn-action {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  -webkit-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  position: relative;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn-action-primary {
+  color: #fff;
+  border-color: #8bbabb;
+  background: #8bbabb;
+}
+
+.btn-action-outline-primary {
+  color: #8bbabb;
+  border-color: #8bbabb;
+}
+
+.btn-action-secondary {
+  color: #fff;
+  border-color: #b96b9f;
+  background: #b96b9f;
+}
+
+.btn-action-round {
+  border-radius: 40px;
+}
+
+.btn-action-block {
+  display: block;
+  width: 100%;
+}
+
+.icon-ion {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  bottom: 0;
+  background: #fff;
+
+  i {
+    color: #ec8f6a;
+  }
+}

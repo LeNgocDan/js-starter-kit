@@ -191,8 +191,10 @@ $(document).ready(function () {
   // hook start button
   $('#slot-trigger').on('click', function () {
     slotTriggerMove();
-
     let TIMER = award.getTimerAward();
+    let awardName = award.getAwardName();
+    let spinTwoNumber = "Giải Khuyến khích" === awardName ? true : false
+
     var delay = 0.5;
     let MULTI_SCROLLING = award.isMultiScrolling();
     MULTI_SCROLLING = true
@@ -201,7 +203,8 @@ $(document).ready(function () {
       setup.playAudio();
       setup.disabledBtnTrigger();
       // let RESULT = getWinnerPersonCode();
-      const RESULT = [1, 1, 1, 1]
+      let RESULT = [1, 1, 1, 1]
+      if (spinTwoNumber) RESULT = [0, 0, 1, 1]
       console.log("RESULT " + RESULT);
 
       spinMultiRing(TIMER, RESULT);

@@ -32,6 +32,15 @@ export class Award {
     nameAwardEle.innerHTML = award['Name'];
   }
 
+  getAwardName = () => {
+    let award = awards[currAwardIdx];
+    if (!award) {
+      alert('Please select a award');
+      return;
+    }
+    return award['Name'];
+  }
+
   nextAward = () => {
     this.cleanWinnerPerson();
     ++currAwardIdx;
