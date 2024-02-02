@@ -1,7 +1,7 @@
 {
-  "name": "training-fe",
+  "name": "lucky-draw",
   "version": "1.0.0",
-  "description": "Training FE",
+  "description": "Lucky Draw",
   "scripts": {
     "start": "npm-run-all -p open:src backend",
     "open:src": "babel-node buildScripts/srcServer.js",
