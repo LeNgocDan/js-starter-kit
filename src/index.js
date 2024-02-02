@@ -160,6 +160,18 @@ function ensureNextMultiSpin() {
 }
 
 $(document).ready(function () {
+
+  let head = $('#head');
+  let stick = $('#stick');
+  let hole = $('#hole');
+
+  function slotTriggerMove() {
+    TweenMax.set([head, stick, hole], { y: 0, scale: 1 });
+    TweenMax.to(head, .4, { y: 70, repeat: 1, yoyo: true, ease: Sine.easeIn });
+    TweenMax.to(stick, .4, { y: 14, scaleY: .3, transformOrigin: "50% 100%", repeat: 1, yoyo: true, ease: Sine.easeIn });
+    TweenMax.to(hole, .4, { y: 10, scaleY: 2, repeat: 1, yoyo: true, ease: Sine.easeIn });
+  }
+
   for (var ringIndex of RING_SLOTS) {
     createSlots($('#ring-' + ringIndex), ringIndex);
   }
@@ -178,6 +190,8 @@ $(document).ready(function () {
 
   // hook start button
   $('#slot-trigger').on('click', function () {
+    slotTriggerMove();
+
     let TIMER = award.getTimerAward();
     var delay = 0.5;
     let MULTI_SCROLLING = award.isMultiScrolling();
