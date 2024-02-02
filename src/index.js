@@ -184,14 +184,18 @@ $(document).ready(function () {
     MULTI_SCROLLING = true
     if (MULTI_SCROLLING) {
       // ensureNextMultiSpin();
-      // setup.playAudio();
+      setup.playAudio();
       setup.disabledBtnTrigger();
       // let RESULT = getWinnerPersonCode();
       const RESULT = [1, 1, 1, 1]
       console.log("RESULT " + RESULT);
 
       spinMultiRing(TIMER, RESULT);
-      setup.enabledBtnTrigger();
+      setTimeout(() => {
+        setup.enabledBtnTrigger();
+        setup.stopAudio();
+      }, (TIMER + 3) * 1000);
+
     } else {
       setup.disabledBtnTrigger();
       if (currRingIdx == -1) {
