@@ -19,6 +19,12 @@ body {
   width: 100vw;
   line-height: inherit;
   background-color: black !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
 #wrapper {
@@ -131,11 +137,11 @@ div.footer {
   flex-grow: 1;
 
   #award-container {
+    display: none; // flex
+    // justify-content: center;
+    // align-items: center;
+    // flex-grow: 1;
     width: 100% !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
     padding: 0;
     margin: 1rem 0;
 
@@ -147,17 +153,25 @@ div.footer {
   }
 
   .random-number {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.5em;
+    min-width: 800px;
     display: flex;
-    flex-grow: 0;
-    width: 100%;
-    justify-content: center;
+
+
+    // flex-grow: 0;
+    // width: 100%;
+    // justify-content: center;
 
     #slot-trigger {
       cursor: pointer;
       background: none;
       border: none;
     }
+
   }
+
 
   h2 {
     color: #24292E;

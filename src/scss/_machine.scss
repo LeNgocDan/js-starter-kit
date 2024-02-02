@@ -16,7 +16,8 @@
 }
 
 .base-frame {
-  width: calc(#{$machineWidth} - 40px);
+  // width: calc(#{$machineWidth} - 40px);
+  width: 100%;
   height: calc(#{$machineHeight} - 40px);
   background: -webkit-linear-gradient(top, #222 0%, #666 36%, #252525 100%);
   opacity: 1;
@@ -30,7 +31,8 @@
 }
 
 .base-frame-top {
-  width: calc(#{$machineWidth} - 40px);
+  width: 100%;
+  // width: calc(#{$machineWidth} - 40px);
   height: 20px;
   background: -webkit-linear-gradient(top, #222 0%, #666 36%, #252525 100%);
   position: absolute;
@@ -38,11 +40,12 @@
 }
 
 .base-frame-bottom {
-  width: calc(#{$machineWidth} - 40px);
+  width: 100%;
+  // width: calc(#{$machineWidth} - 40px);
   height: 20px;
   background: -webkit-linear-gradient(top, #222 0%, #666 36%, #252525 100%);
   position: absolute;
-  top: 0px;
+  top: 0;
 }
 
 .m-slots {

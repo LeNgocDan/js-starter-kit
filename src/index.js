@@ -12,7 +12,7 @@ const PERSON_WINNER_MAP = new Map();
 
 
 // initiate slots
-const RING_SLOTS = [1, 2, 3];
+const RING_SLOTS = [1, 2, 3, 4];
 const SLOTS_PER_REEL = 12;
 const REEL_RADIUS = 150;
 
@@ -21,8 +21,9 @@ restTest.get("users", {}, res => {
   console.log(res);
 })
 
-// -------------------for UI only
+// -------------------for UI only, fireworks
 global.tsParticles.load("tsparticles", config)
+
 let award = new setup.Award([]);
 
 rest.get("users", {}, (result) => {
@@ -97,7 +98,8 @@ function getWinnerPersonCode() {
 }
 
 function spinMultiRing(timer, result) {
-  for (var i = 1; i <= 3; i++) {
+  for (var i = 1; i <= 4; i++) {
+
     var oldSeed = -1;
     var oldClass = $('#ring-' + i).attr('class');
     if (oldClass.length > 4) {
@@ -178,27 +180,18 @@ $(document).ready(function () {
   $('#slot-trigger').on('click', function () {
     let TIMER = award.getTimerAward();
     var delay = 0.5;
+    let MULTI_SCROLLING = award.isMultiScrolling();
+    MULTI_SCROLLING = true
+    if (MULTI_SCROLLING) {
+      // ensureNextMultiSpin();
+      // setup.playAudio();
+      setup.disabledBtnTrigger();
+      // let RESULT = getWinnerPersonCode();
+      const RESULT = [1, 1, 1, 1]
+      console.log("RESULT " + RESULT);
 
-    if (award.isMultiScrolling()) {
-      let closingCurtain = setup.isCurtainClosing();
-      ensureNextMultiSpin();
-
-      if (closingCurtain) {
-        setTimeout(function () {
-          setup.playAudio();
-          setup.disabledBtnTrigger();
-          let RESULT = getWinnerPersonCode();
-          spinMultiRing(TIMER, RESULT);
-        }, 1000)
-      } else {
-        setup.playAudio();
-        setup.disabledBtnTrigger();
-        let RESULT = getWinnerPersonCode();
-        spinMultiRing(TIMER, RESULT);
-      }
-      setTimeout(() => {
-        setup.stopAudio();
-      }, (TIMER + RING_SLOTS.length + delay) * 1000);
+      spinMultiRing(TIMER, RESULT);
+      setup.enabledBtnTrigger();
     } else {
       setup.disabledBtnTrigger();
       if (currRingIdx == -1) {

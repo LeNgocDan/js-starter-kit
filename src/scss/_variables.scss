@@ -2,14 +2,18 @@ $primaryColor: #424e64;
 $secondaryColor: #bbc2ca;
 $fontColor: #35373a;
 
-$primaryFont:'Inter', sans-serif;
+$primaryFont: 'Inter', sans-serif;
 $normalWeight: 300;
 $boldWeight: 700;
 
 $gutter: 2%;
-$gutterdb: (2 * $gutter);
+$gutterdb: (
+  2 * $gutter
+);
 
-$width: 50vw;
+$width: 70vw;
 $height: 100vh;
+
 $machineWidth: calc(#{$width} * .7);
+
 $machineHeight: 266px;
