@@ -1,6 +1,7 @@
 const $ = require('jquery')
 import { participants } from './testdata'
 import seedMapping from './seedMapping';
+import seedMapping2 from './seedMapping2';
 import './scss/index.scss';
 import * as setup from './uiSetup';
 import { config } from './vendor';
@@ -59,23 +60,13 @@ function createSlots(ringEle, ringIdx) {
   }
 }
 
-function findSeed(oldSeed, result, _ringIdx) {
-  let newSeed = null;
-  for (var i = 0; i < seedMapping.length; i++) {
-    if (seedMapping[i].seed != oldSeed && seedMapping[i].result == result) {
-      newSeed = seedMapping[i].seed;
+function findSeed(oldSeed, result, ringIdx) {
+  for (let i = 0; i < seedMapping.length; i++) {
+    let sel = seedMapping[i];
+    if (sel.seed != oldSeed && sel.result == result) {
+      return sel.seed;
     }
   }
-  // if (!newSeed) {
-  //   for (var i = 0; i < $(`.ring-${ringIdx}-slot-number`).length; i++) {
-  //     let text = (seedMap2[i].seed + i) % 10;
-  //     $(`.ring-${ringIdx}-slot-number`)[i].innerHTML = seedMap2[i].result;
-  //     $(`.ring-${ringIdx}-slot-number`)[i].innerText = seedMap2[i].result;
-  //   }
-  //   console.log('\n call seed map 2 at ring ' + ringIdx);
-  //   newSeed = findSeed2(oldSeed, result);
-  // }
-  return newSeed;
 }
 
 function getWinnerPersonCode() {
@@ -100,28 +91,25 @@ function getWinnerPersonCode() {
 }
 
 function spinMultiRing(timer, result) {
-  for (var i = 1; i <= 4; i++) {
-
-    var oldSeed = -1;
-    var oldClass = $('#ring-' + i).attr('class');
+  for (let i = 1; i <= 4; i++) {
+    let oldSeed = -1;
+    let oldClass = $('#ring-' + i).attr('class');
     if (oldClass.length > 4) {
       oldSeed = parseInt(oldClass.slice(10));
     }
-    var iSeed = findSeed(oldSeed, result[i - 1], i);
-    console.log('Old Seed ' + oldSeed + 'New Seed ' + iSeed);
-    console.log("---------------------------------------------");
-    if (!iSeed) {
-      iSeed = oldSeed;
-      let fakeHackSpin = 0;
-      if (oldSeed == 0) fakeHackSpin = 11;
+    let iSeed = findSeed(oldSeed, result[i - 1], i);
+    if (typeof iSeed != 'number') {
+      let notEqualSeeds = seedMapping.map(sel => sel.seed).filter(seed => seed != oldSeed);
+      let fakeHackSpin = notEqualSeeds[Math.floor(Math.random() * notEqualSeeds.length)];
 
       $('#ring-' + i)
-        .css('animation', 'back-spin 1s, spin-' + fakeHackSpin + ' ' + 1 + 's')
-        .attr('class', 'ring spin-' + iSeed);
+        .css('animation', 'back-spin 1s, spin-' + fakeHackSpin + ' ' + (timer + i * 1) + 's')
+        .attr('class', 'ring spin-' + oldSeed);
     } else {
+      const spin = `spin-${iSeed}`
       $('#ring-' + i)
-        .css('animation', 'back-spin 1s, spin-' + iSeed + ' ' + (timer + i * 1) + 's')
-        .attr('class', 'ring spin-' + iSeed);
+        .css('animation', 'back-spin 1s, ' + spin + ' ' + (timer + i * 1) + 's')
+        .attr('class', 'ring ' + spin);
     }
   }
 }
@@ -191,7 +179,7 @@ $(document).ready(function () {
 
   let RESULT;
 
-  const LUCKY_NUMBER = ['1234', '5678', '1111', '2222', '3333']
+  const LUCKY_NUMBER = ['1234', '5678']
   const LUCKY_NUMBER_2 = ['0011', '0012', '0013', '0014', '0015']
 
   function getRandomElement(luckyNumbers) {
@@ -204,6 +192,7 @@ $(document).ready(function () {
   $('#slot-trigger').on('click', function () {
     slotTriggerMove();
     let TIMER = award.getTimerAward();
+    TIMER = 3
     let awardName = award.getAwardName();
     let spinTwoNumber = "Giải Khuyến khích" === awardName ? true : false
 
