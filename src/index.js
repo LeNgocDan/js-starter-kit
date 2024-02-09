@@ -1,7 +1,6 @@
 const $ = require('jquery')
 import { participants } from './testdata'
 import seedMapping from './seedMapping';
-import seedMapping2 from './seedMapping2';
 import './scss/index.scss';
 import * as setup from './uiSetup';
 import { config } from './vendor';
@@ -26,14 +25,6 @@ restTest.get("users", {}, res => {
 global.tsParticles.load("tsparticles", config)
 
 let award = new setup.Award([]);
-
-rest.get("users", {}, (result) => {
-  console.log('----------------Load Participant ------------------');
-  if (result) {
-    participantsCopy = result;
-    PARTICIPANT_SIZE = participantsCopy.length;
-  }
-});
 
 rest.get("awards", {}, (result) => {
   if (result) {
@@ -179,8 +170,17 @@ $(document).ready(function () {
 
   let RESULT;
 
-  const LUCKY_NUMBER = ['1234', '5678']
-  const LUCKY_NUMBER_2 = ['0011', '0012', '0013', '0014', '0015']
+  let LUCKY_NUMBER = [
+    "3627", "4036", "4511", "6639", "2530", "6244",
+    "5176", "4087", "2739", "6003", "4815", "9487",
+    "6124", "6092", "5929", "7602", "5800", "4399",
+    "9237", "0800", "5586", "9506", "5827", "0436",
+    "8481", "2099", "9091", "4184", "2101", "5625",
+    "1434", "2952", "1976", "5829", "5034", "9790",
+    "9791", "9962", "1861", "3629", "9721", "5216",
+    "8745", "5607", "8901", "7902", "3344", "8379",
+    "7424", "5355", "8334", "5539", "3695", "0412",
+    "7797", "9129", "7390"]
 
   function getRandomElement(luckyNumbers) {
     const randomIndex = Math.floor(Math.random() * luckyNumbers.length);
@@ -188,15 +188,14 @@ $(document).ready(function () {
     return code.split('');
   }
 
+  const LUCKY_NUMBER_ALREADY = [];
+
+
   // hook start button
   $('#slot-trigger').on('click', function () {
     slotTriggerMove();
     let TIMER = award.getTimerAward();
     TIMER = 3
-    let awardName = award.getAwardName();
-    let spinTwoNumber = "Giải Khuyến khích" === awardName ? true : false
-
-    var delay = 0.5;
     let MULTI_SCROLLING = award.isMultiScrolling();
     MULTI_SCROLLING = true
     if (MULTI_SCROLLING) {
@@ -207,8 +206,14 @@ $(document).ready(function () {
       // let RESULT = getWinnerPersonCode();
 
       let RESULT = getRandomElement(LUCKY_NUMBER);
-      if (spinTwoNumber) RESULT = getRandomElement(LUCKY_NUMBER_2)
-      console.log("RESULT " + RESULT);
+      const resultStr = RESULT.join("");
+      LUCKY_NUMBER_ALREADY.push(resultStr);
+      LUCKY_NUMBER = LUCKY_NUMBER.filter(item => item !== resultStr);
+      console.log('-------So con trung thuong-----------');
+      console.log(LUCKY_NUMBER);
+
+      console.log('-------So da trung thuong-----------');
+      console.log(LUCKY_NUMBER_ALREADY);
 
       spinMultiRing(TIMER, RESULT);
       setTimeout(() => {
